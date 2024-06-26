@@ -18,7 +18,7 @@ h2 {
 }
 
 body {
-    background-image: url('images/MusicGearHead.jpg');
+    background-image: url('images/webpagebkground.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -75,7 +75,7 @@ ul.nav-menu li {
 
 ul.nav-menu li a {
     font-size:x-large;
-    color: red;
+    color: green;
     text-decoration: none;
 }
 
@@ -108,7 +108,7 @@ footer {
     width: 100%;
     padding: 5px;
     overflow: auto;
-    color: red;
+    color: green;
 }
 
 .text-container p {
