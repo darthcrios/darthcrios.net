@@ -102,6 +102,10 @@ ul.nav-menu li a:hover {
     align-items: center;
     text-align: center;
 }
+.spotify-embed {
+    flex: 0 0 auto;
+    margin-left: 700px;
+}
 
 footer {
     background-color: none;
@@ -109,7 +113,7 @@ footer {
     padding: 5px;
     overflow: auto;
     color: green;
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 .text-container p {
