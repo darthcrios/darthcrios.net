@@ -134,28 +134,3 @@ footer {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     font-size: 24px;
 }
-/* Responsive styling */
-@media (max-width: 768px) {
-    .container {
-        width: 100%;
-        padding: 0 10px;
-    }
-    .text-container {
-        max-width: 100%;
-    }
-    .spotify-embed {
-        position: static;
-        transform: none;
-        margin: 20px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .site-navigation li {
-        display: block;
-        margin: 5px 0;
-    }
-    .site-navigation {
-        text-align: center;
-    }
-}
