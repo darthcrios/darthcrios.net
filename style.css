@@ -109,6 +109,7 @@ footer {
     padding: 5px;
     overflow: auto;
     color: green;
+    font-size: x-large;
 }
 
 .text-container p {
