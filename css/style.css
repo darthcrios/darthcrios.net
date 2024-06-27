@@ -18,7 +18,7 @@ h2 {
 }
 
 body {
-    background-image: url('images/webpagebkground.png');
+    background-image: url('../images/webpagebkground.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
