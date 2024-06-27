@@ -24,7 +24,8 @@ body {
 
 @media (max-width: 768px) {
     body {
-        background-size: repeat;
+        background-size: cover;
+        background-repeat: yes;
         margin-bottom: 100px;
     }
 }
