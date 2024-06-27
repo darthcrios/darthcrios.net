@@ -102,6 +102,13 @@ ul.nav-menu li a:hover {
     align-items: center;
     text-align: center;
 }
+.blog-posts {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 .spotify-embed {
     flex: 0 0 auto;
     margin-left: 700px;
