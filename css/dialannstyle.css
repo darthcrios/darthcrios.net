@@ -96,6 +96,19 @@ ul.nav-menu li a:hover {
     text-align: left; /* Ensure content alignment */
 }
 
+.text-container p { /* Added Hover Box style while hoover is off*/
+  display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: 24px;
+}
+
 footer {
     position: fixed; /* Fixed positioning */
     bottom: 0; /* Stick to the bottom of the viewport */
