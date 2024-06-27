@@ -1,0 +1,15 @@
+[
+    {
+        "title": "My First Blog Post",
+        "date": "2024-06-26",
+        "summary": "This is a brief summary of my first blog post.",
+        "url": "dialann/post1.html"
+    },
+    {
+        "title": "My Second Blog Post",
+        "date": "2024-06-20",
+        "summary": "This is a brief summary of my second blog post.",
+        "url": "dialann/post2.html"
+    },
+    // Add more posts as needed
+]
