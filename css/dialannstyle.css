@@ -23,7 +23,7 @@ body {
 
 @media (max-width: 768px) {
     body {
-        background-size: auto;
+        background-size: cover;
     }
 }
 
@@ -91,6 +91,7 @@ ul.nav-menu li a:hover {
 
 .blog-posts {
     background-color: rgba(0, 0, 0, 0.5);
+
     width: 80%; /* Adjust width as needed */
     max-width: 1200px; /* Example maximum width */
     margin: 0 auto; /* Centering content */

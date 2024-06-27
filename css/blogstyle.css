@@ -23,7 +23,7 @@ body {
 
 @media (max-width: 768px) {
     body {
-        background-size: auto;
+        background-size: cover;
     }
 }
 
