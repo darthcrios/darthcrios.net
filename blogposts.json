@@ -1,14 +1,14 @@
 [
     {
-        "title": "Crios Adventures",
+        "title": "Crios Adventures Test Blog",
         "date": "2024-06-26",
-        "summary": "This is a brief summary of my first blog post.",
+        "summary": "This is an AI genereated blog for test purposes.",
         "url": "dialann/post1.html"
     },
     {
-        "title": "My Second Blog Post",
-        "date": "2024-06-20",
-        "summary": "This is a brief summary of my second blog post.",
+        "title": "15th Iúil 2024",
+        "date": "2024-07-15",
+        "summary": "Mo chara sa cathair.",
         "url": "dialann/post2.html"
     }
 ]
