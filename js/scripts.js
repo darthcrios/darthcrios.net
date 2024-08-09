@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             const blogPostsSection = document.getElementById('blog-posts');
+            // Sort posts by date in descending order
+            data.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
             data.forEach(post => {
                 const article = document.createElement('article');
                 article.innerHTML = `
