@@ -102,11 +102,7 @@ ul.nav-menu li a:hover {
     padding-bottom: 50px; /* To avoid overlap with the footer */
 }
 
-.blog-posts article {
-    background-color: rgba(255, 255, 255, 0.1); /* Optional styling */
-    padding: 15px;
-    border-radius: 10px;
-}
+
 
 
 footer {
