@@ -93,7 +93,7 @@ ul.nav-menu li a:hover {
 .blog-posts {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Three columns */
-    gap: 30px; /* Space between posts */
+    gap: 50px; /* Space between posts */
     background-color: rgba(0, 0, 0, 0.5);
     width: 80%;
     max-width: 1200px;
