@@ -91,13 +91,21 @@ ul.nav-menu li a:hover {
 }
 
 .blog-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 20px; /* Space between posts */
     background-color: rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+    padding-bottom: 50px; /* To avoid overlap with the footer */
+}
 
-    width: 80%; /* Adjust width as needed */
-    max-width: 1200px; /* Example maximum width */
-    margin: 0 auto; /* Centering content */
-    text-align: left; /* Ensure content alignment */
-    overflow-y: auto; /* ensures overf*/
+.blog-posts article {
+    background-color: rgba(255, 255, 255, 0.1); /* Optional styling */
+    padding: 15px;
+    border-radius: 10px;
 }
 
 
