@@ -97,6 +97,7 @@ ul.nav-menu li a:hover {
     max-width: 1200px; /* Example maximum width */
     margin: 0 auto; /* Centering content */
     text-align: left; /* Ensure content alignment */
+    overflow-y: auto; /* ensures overf*/
 }
 
 
