@@ -93,8 +93,15 @@ ul.nav-menu li a:hover {
 }
 
 .youtube-embed {
-    flex: 0 0 auto;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 50px; /* Space between posts */
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+    padding-bottom: 50px; /* To avoid overlap with the footer */
 }
 
 
