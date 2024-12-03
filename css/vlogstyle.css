@@ -25,7 +25,7 @@ body {
     position: relative;
 }
 
-@media (max-width: 879px) {
+@media (max-width: 768px) {
     body {
         background-size: cover;
     }
