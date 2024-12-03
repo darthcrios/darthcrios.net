@@ -92,10 +92,6 @@ ul.nav-menu li a:hover {
     text-align: center;
 }
 
-.youtube-embed {
-    flex: 0 0 auto;
-    margin-left: 700px;
-}
 
 footer {
     position: fixed; /* Fixed positioning */
