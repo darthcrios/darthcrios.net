@@ -94,11 +94,11 @@ ul.nav-menu li a:hover {
 .blog-posts {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     text-align: center;
 }
-.spotify-embed {
+.youtube-embed {
     flex: 0 0 auto;
     margin-left: 700px;
 }
