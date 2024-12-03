@@ -84,12 +84,12 @@ ul.nav-menu li a:hover {
     min-height: 100vh;
 }
 
-.content {
+/*.content {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center;*/
 }
 
 .youtube-embed {
