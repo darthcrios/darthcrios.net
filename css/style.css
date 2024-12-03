@@ -92,13 +92,13 @@ ul.nav-menu li a:hover {
     text-align: center;
 }
 
-.blog-posts {
+/*.blog-posts {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-}
+}*/
 
 .spotify-embed {
     flex: 0 0 auto;
