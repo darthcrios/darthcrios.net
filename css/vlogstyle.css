@@ -102,6 +102,11 @@ ul.nav-menu li a:hover {
     align-items: right;
 }
 
+.youtube-embed3{
+    flex: 00 auto;
+    align-items: center;
+}
+
 footer {
     position: fixed; /* Fixed positioning */
     bottom: 0; /* Stick to the bottom of the viewport */
