@@ -94,17 +94,17 @@ ul.nav-menu li a:hover {
 
 .youtube-embed {
     flex: 0 0 auto;
-    align-items: left;
+    align-items: top right;
 }
 
 .youtube-embed2{
     flex: 0 0 auto;
-    align-items: right;
+    align-items: top left;
 }
 
 .youtube-embed3{
     flex: 00 auto;
-    align-items: center;
+    align-items: bottom right;
 }
 
 footer {
