@@ -94,6 +94,7 @@ ul.nav-menu li a:hover {
 
 .youtube-embed {
     flex: 0 0 auto;
+    align-items: Left;
 }
 
 footer {
