@@ -1,0 +1,130 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: Georgia, Times, serif;
+}
+
+
+}
+
+h2 {
+    font-size: xx-large;
+    color: red;
+}
+
+body {
+    background-image: url('../images/webpagebkground.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+    }
+}
+
+.site-header {
+    background-color: none;
+    width: 100%;
+    padding: 10px;
+    overflow: auto;
+    color: red;
+}
+
+.site-title {
+    float: left;
+}
+
+.site-navigation {
+    float: right;
+    text-align: right;
+    margin: 20px 30px 0 0;
+    color: red;
+}
+
+ul.nav-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: red;
+}
+
+ul.nav-menu li {
+    display: inline;
+    padding-right: 20px;
+}
+
+ul.nav-menu li a {
+    font-size:x-large;
+    color: green;
+    text-decoration: none;
+}
+
+ul.nav-menu li a:hover {
+    text-decoration: underline;
+}
+
+.site-header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+}
+.blog-posts {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.spotify-embed {
+    flex: 0 0 auto;
+    margin-left: 700px;
+}
+
+footer {
+    position: fixed; /* Fixed positioning */
+    bottom: 0; /* Stick to the bottom of the viewport */
+    background-color: transparent;
+    width: 100%;
+    padding: 5px;
+    overflow: auto;
+    color: green;
+    font-size: x-large;
+}
+
+.text-container p { /* Added Hover Box style while hoover is off*/
+  display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: 24px;
+}
+
