@@ -95,6 +95,14 @@ ul.nav-menu li a:hover {
 .youtube-embed {
     flex: 0 0 auto;
     align-items: center;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
