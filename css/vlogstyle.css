@@ -96,14 +96,14 @@ ul.nav-menu li a:hover {
 .content {
     flex: 1;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     text-align: center;
 }
 
 .youtube-embed {
     flex: 0 0 auto;
-    /*align-items: center;*/
+    align-items: center;
     display: block;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
