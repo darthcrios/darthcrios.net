@@ -28,7 +28,7 @@ h3{
 body {
     background-image: url('../images/webpagebkground.png');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center center;
     position: relative;
 }
