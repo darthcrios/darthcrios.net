@@ -96,8 +96,8 @@ ul.nav-menu li a:hover {
 .content {
     flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: left;
+    justify-content: left;
+    align-items: center;
     text-align: center;
 }
 
