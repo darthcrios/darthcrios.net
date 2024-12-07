@@ -97,7 +97,7 @@ ul.nav-menu li a:hover {
     flex: 1;
     display: flex;
     justify-content: cente;
-    align-items: enter;
+    align-items: center;
     text-align: center;
 }
 
