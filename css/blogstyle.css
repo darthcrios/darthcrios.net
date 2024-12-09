@@ -107,7 +107,7 @@ ul.nav-menu li a:hover {
 }
 
 footer {
-    position: absolute; /* absolute positioning */
+    position: fixed; /* absolute positioning */
     bottom: 0; /* Stick to the bottom of the viewport */
     background-color: transparent;
     width: 100%;
