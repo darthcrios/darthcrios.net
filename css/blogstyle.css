@@ -102,12 +102,12 @@ ul.nav-menu li a:hover {
     text-align: left; /* Ensure content alignment */
 }
 
-/*.text-container p { 
+*.text-container p { 
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     font-size: 24px;
-}*/
+}*
 
 footer {
     position: fixed; /* absolute positioning */
