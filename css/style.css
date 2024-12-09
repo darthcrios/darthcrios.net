@@ -95,14 +95,14 @@ ul.nav-menu li a:hover {
 .content {
     flex: 1;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     text-align: center;
 }
 
 .spotify-embed {
     flex: 0 0 auto;
-    margin-left: 700px;
+    /*margin-left: 700px;*/
 }
 
 .text-container p { /* Added Hover Box style while hoover is off*/
