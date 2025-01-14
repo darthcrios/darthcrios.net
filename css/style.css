@@ -9,20 +9,13 @@ h1, h2, h3 {
     font-family: Orange Kid, ByteBounce, serif;
 }
 
-
-}
-
-h1 {
-    font-size: xx-large;
-}
-
 h2 {
-    font-size: xxx-large;
+    font-size: xx-large;
     color: red;
 }
 
 h3{
-    font-size: xxx-large;
+    font-size: xx-large;
     color: white;
     /*background-color: rgba(0, 0, 0, 0.5);*/
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
