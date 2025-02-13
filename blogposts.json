@@ -1,38 +1,8 @@
 [
     {
-        "title": "15th Iúil 2024",
-        "date": "2024-07-15",
-        "summary": "Mo chara sa cathair.",
-        "url": "dialann/post2.html"
-    },
-    {
-        "title": "22nd Iúil 2024",
-        "date": "2024-07-22",
-        "summary": "Laethanna saoire i mo cheann",
-        "url": "dialann/post3.html"
-    },
-    {
-        "title": "26th Iúil 2024",
-        "date": "2024-07-26",
-        "summary": "Tuars don Detroit agus Toronto",
-        "url": "dialann/post4.html"
-    },
-    {
-        "title": "16th Lunasá 2024",
-        "date": "2024-08-16",
-        "summary": "Samhradh 2024",
-        "url": "dialann/post5.html"
-    },
-    {
         "title": "10th Nollaig 2024",
-        "date": "2024-12-08",
-        "summary": "Christmas time",
-        "url": "dialann/post6.html"
-    },
-    {
-        "title": "13th Eanair 2025",
-        "date": "2025-01-13",
-        "summary": "THE NEW YEAR",
-        "url": "dialann/post7.html"
+        "date": "2024-12-10",
+        "summary": "Mo chara sa cathair.",
+        "url": "dialann/post1.html"
     }
-]
+] 

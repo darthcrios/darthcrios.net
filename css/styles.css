@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Press Start 2P', monospace;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+#teletext-screen {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 5px solid blue;
+}
+#header {
+    background-color: blue;
+    color: white;
+    font-size: 4em;
+    padding: 20px;
+}
+#main-content {
+    flex-grow: 1;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid blue;
+}
+ul {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+li {
+    color: white;
+    font-size: 1.5em;
+    padding: 10px 0;
+}
+.highlight-number {
+    color: green; /* Or any color you prefer */
+}
+
+a {
+    color: white;
+}
+
+#footer {
+    background-color: blue;
+    color: white;
+    padding: 20px;
+    border-top: 2px solid blue;
+}
