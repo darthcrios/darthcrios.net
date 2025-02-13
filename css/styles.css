@@ -35,7 +35,7 @@ h1, h2, h3 {
     flex-grow: 1;
     text-align: center;
     padding: 20px;
-    border-top: 2px solid blue;
+    border: 2px solid blue;
 }
 ul {
     list-style: none;
@@ -57,12 +57,12 @@ a {
 }
 
 .spotify-embed {
-    border-top: 2px solid blue;
+    border: 2px solid blue;
 }
 
 #footer {
     background-color: blue;
     color: white;
     padding: 20px;
-    border-top: 2px solid blue;
+    border: 2px solid blue;
 }
