@@ -15,6 +15,11 @@ body {
     justify-content: space-between;
     border: 5px solid blue;
 }
+
+.highlight-number {
+    color: green; /* Or any color you prefer */
+}
+
 #header {
     background-color: blue;
     color: white;
@@ -40,9 +45,7 @@ li {
     font-size: 1.5em;
     padding: 10px 0;
 }
-.highlight-number {
-    color: green; /* Or any color you prefer */
-}
+
 
 a {
     color: white;
