@@ -7,6 +7,11 @@ body {
     margin: 0;
     padding: 0;
 }
+
+h1, h2, h3 {
+    font-size: 2em;
+}
+
 #teletext-screen {
     width: 100vw;
     height: 100vh;
@@ -41,7 +46,7 @@ li {
     padding: 10px 0;
 }
 .highlight-number {
-    color: green; /* Or any color you prefer */
+    color: green;
 }
 
 a {
