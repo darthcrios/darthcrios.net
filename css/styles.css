@@ -20,6 +20,10 @@ body {
     color: green; /* Or any color you prefer */
 }
 
+h1, h2, h3 {
+    font-size: 1em;
+}
+
 #header {
     background-color: blue;
     color: white;
