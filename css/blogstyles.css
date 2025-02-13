@@ -18,7 +18,7 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 5px solid blue;
+    border: 5px solid red;
 }
 
 .highlight-number {
@@ -26,7 +26,7 @@ h1, h2, h3 {
 }
 
 #header {
-    background-color: blue;
+    background-color: red;
     color: white;
     font-size: 4em;
     padding: 20px;
@@ -35,7 +35,7 @@ h1, h2, h3 {
     flex-grow: 1;
     text-align: center;
     padding: 20px;
-    border-top: 2px solid blue;
+    border-top: 2px solid red;
 }
 ul {
     list-style: none;
@@ -56,8 +56,8 @@ a {
 }
 
 #footer {
-    background-color: blue;
+    background-color: red;
     color: white;
     padding: 20px;
-    border: 5px solid blue;
+    border: 5px solid red;
 }
