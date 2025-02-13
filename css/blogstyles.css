@@ -20,6 +20,11 @@ h1, h2, h3 {
     justify-content: space-between;
     border: 5px solid blue;
 }
+
+.highlight-number {
+    color: green;
+}
+
 #header {
     background-color: blue;
     color: white;
@@ -44,9 +49,6 @@ li {
     color: white;
     font-size: 1.5em;
     padding: 10px 0;
-}
-.highlight-number {
-    color: green;
 }
 
 a {
