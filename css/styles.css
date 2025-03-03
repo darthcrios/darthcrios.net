@@ -30,7 +30,7 @@ h3 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 5px solid blue;
+    border: 5px solid red;
 }
 
 .highlight-number {
@@ -38,7 +38,7 @@ h3 {
 }
 
 #header {
-    background-color: blue;
+    background-color: red;
     color: white;
     font-size: 4em;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -48,7 +48,7 @@ h3 {
     flex-grow: 1;
     text-align: center;
     padding: 20px;
-    border-top: 2px solid blue;
+    border-top: 2px solid red;
 }
 ul {
     list-style: none;
@@ -75,13 +75,13 @@ a:hover {
 }
 
 .spotify-embed {
-    border-top: 2px solid blue;
-    border-bottom: 2px solid blue;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
 }
 
 #footer {
-    background-color: blue;
+    background-color: red;
     color: white;
     padding: 20px;
-    border: 5px solid blue;
+    border: 5px solid red;
 }
