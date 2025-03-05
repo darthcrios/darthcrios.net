@@ -24,12 +24,28 @@
                 <li><a href="https://www.twitch.tv/darthcriostoir">Live Streaming - <span class="highlight-number">152</a></li>
             </ul>
             <div style="background-color: green;"><h2>Failte!</h2></div>
+            <body><h3>🎶 Live Stream from Críos Radio</h3>
+                <p>Now Streaming: <span id="currentSong">Loading...</span></p>
             <audio id="liveAudio" controls>
-                    <source src="https://radio.darthcrios.net/stream" type="audio/mpeg"></audio>
-                        <button onclick="document.getElementById('liveAudio').play()">▶ Play</button>
-                        <button onclick="document.getElementById('liveAudio').pause()">⏸ Pause</button>
-                        <div style="background-color: green;"><h3>Now Broadcasting!</h3></div>
-                <p>Please reach out to Clovermind Music for more <a href="https://www.clovermindmusic.com/contact"style="color:green;">info!</a></p>
+                <source src="https://radio.darthcrios.net/stream" type="audio/mpeg"> Your browser does not support the audio tag.</audio>
+        <script>
+        // Fetch current song metadata from Icecast
+        function updateSongInfo() {
+            fetch("http://your-public-ip:8000/status-json.xsl")
+                .then(response => response.json())
+                .then(data => {
+                    let song = data.icestats.source.title || "Unknown Track";
+                    document.getElementById("currentSong").textContent = song;
+                })
+                .catch(() => {
+                    document.getElementById("currentSong").textContent = "Error fetching song info";
+                });
+        }
+        setInterval(updateSongInfo, 5000); // Update every 5 seconds
+        updateSongInfo(); // Initial load
+    </script>
+
+<p>Please reach out to Clovermind Music for more <a href="https://www.clovermindmusic.com/contact"style="color:green;">info!</a></p>
         <div id="footer">Clovermind Music LLC 2025. All Rights Reserved | www.darthcrios.net</div>
     </div>
 </body>
