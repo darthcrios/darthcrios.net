@@ -31,7 +31,7 @@
     <script>
         // Fetch current song metadata from Icecast
         function updateSongInfo() {
-            fetch("http://172.249.131.232:8000/status-json.xsl")
+            fetch("https://172.249.131.232:8000/status-json.xsl")
                 .then(response => response.json())
                 .then(data => {
                     let song = data.icestats.source.title || "Unknown Track";
