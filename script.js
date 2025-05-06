@@ -18,7 +18,7 @@ function processCommand(command) {
       printLine("Available commands: help, decrypt archive, play stream, journal latest");
       break;
     case "decrypt archive":
-      printLine("Decrypting... ✅ Lore Archive unlocked.");
+      printLine("Decrypting... ✅ The Archive is unlocked.");
       loreSection.style.display = "block";
       break;
     case "play stream":
