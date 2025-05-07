@@ -15,7 +15,7 @@ input.addEventListener("keydown", function (e) {
 function processCommand(command) {
   switch (command.toLowerCase()) {
     case "help":
-      printLine("Available commands: help, decrypt archive, play stream, journal latest");
+      printLine("Available commands: help, decrypt archive, play stream, latest blog");
       break;
     case "decrypt archive":
       printLine("Decrypting... ✅ The Archive is unlocked.");
@@ -25,7 +25,7 @@ function processCommand(command) {
       printLine("🔊 Stream Activated.");
       audio.play();
       break;
-    case "journal latest":
+    case "latest blog":
       printLine("Opening blog feed...");
       blogSection.style.display = "block";
       break;
