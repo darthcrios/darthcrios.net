@@ -26,7 +26,7 @@ function processCommand(command) {
       audio.play();
       break;
     case "latest log":
-      printLine("Opening blog feed...");
+      printLine("Opening log feed...");
       blogSection.style.display = "block";
       break;
     default:
