@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const article = document.createElement('article');
                 article.innerHTML = `
                   <h3><a href="${post.url}" style="color: white;">${post.title}</a></h3>
-                    <p style="color: white;">Published on: <time datetime="${post.date}">${new Date(post.date).toDateString()}</time></p>
-                    <p style="color: white;">${post.summary}</p>
+                    <p style="color: red;">Published on: <time datetime="${post.date}">${new Date(post.date).toDateString()}</time></p>
+                    <p style="color: red;">${post.summary}</p>
                     <a href="${post.url}" style="color: green;">Read more...</a>
                 `;
                 blogPostsSection.appendChild(article);
