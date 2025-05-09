@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('blogposts.json')
         .then(response => response.json())
         .then(data => {
-            const blogPostsSection = document.getElementById('blog-posts');
+            const blogPostsSection = document.getElementById('archive-posts');
             // Sort posts by date in descending order
             data.sort((a, b) => new Date(b.date) - new Date(a.date));
             
@@ -17,5 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 blogPostsSection.appendChild(article);
             });
         })
-        .catch(error => console.error('Error fetching blog posts:', error));
+        .catch(error => console.error('Error fetching archive posts:', error));
 });
