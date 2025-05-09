@@ -1,4 +1,4 @@
-.blog-header {
+.archive-header {
   color: #a259ff;
   font-size: 2rem;
   border-bottom: 1px solid #a259ff;
@@ -6,7 +6,7 @@
   margin-bottom: 2rem;
 }
 
-.blog-post {
+.archive-post {
   margin-bottom: 3rem;
   padding: 1rem;
   background-color: #111;
@@ -14,18 +14,18 @@
   box-shadow: 0 0 10px #a259ff22;
 }
 
-.blog-post h2 {
+.archive-post h2 {
   margin-top: 0;
   color: #e60000;
 }
 
-.blog-post .date {
+.archive-post .date {
   font-size: 0.9rem;
   color: #a259ff;
   margin-bottom: 1rem;
 }
 
-.blog-post p {
+.archive-post p {
   line-height: 1.6;
   color: #e60000;
 }
