@@ -18,7 +18,7 @@ function processCommand(command) {
       printLine("Available commands: help, decrypt archive, play stream, latest log");
       break;
     case "decrypt archive":
-      printLine("Decrypting... ✅ The Archive is unlocked.");
+      printLine("Decrypting... ✅ The Archive is Unlocked.");
       loreSection.style.display = "block";
       break;
     case "play stream":
@@ -26,7 +26,7 @@ function processCommand(command) {
       audio.play();
       break;
     case "latest log":
-      printLine("Opening log feed...");
+      printLine("Opening Log Feed...");
       blogSection.style.display = "block";
       break;
     default:
