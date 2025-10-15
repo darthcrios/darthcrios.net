@@ -84,7 +84,7 @@ pre {
 .lore {
   margin-top: 2rem;
   padding: 1rem;
-  border: 1px dashed #e60000;
+  border: 1px solid; #e60000;
   background-color: #111;
   display: none;
   color: #a259ff;
