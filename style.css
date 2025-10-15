@@ -85,6 +85,7 @@ pre {
   margin-top: 2rem;
   padding: 1rem;
   border: 1px solid; #e60000;
+  box-shadow: 0 0 10px #e60000;
   background-color: #111;
   display: none;
   color: #a259ff;
