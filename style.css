@@ -78,7 +78,7 @@ pre {
   margin-top: 2rem;
   border-top: 1px solid #333;
   padding-top: 1rem;
-  color: #a259ff;
+  color: #e60000;
 }
 
 .lore {
@@ -96,7 +96,7 @@ pre {
   border: 1px solid #a259ff;
   background-color: #0f0f0f;
   display: none;
-  color: #e60000;
+  color: #f46a00;
 }
 
 a {
