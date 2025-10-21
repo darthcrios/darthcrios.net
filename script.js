@@ -15,7 +15,7 @@ input.addEventListener("keydown", function (e) {
 function processCommand(command) {
   switch (command.toLowerCase()) {
     case "help":
-      printLine("Available commands: help, decrypt archive, play stream, latest log");
+      printLine("Available commands: help, decrypt archive, play stream, latest log, contact");
       break;
     case "decrypt archive":
       printLine("Decrypting... ✅ The Archive is Unlocked.");
@@ -29,6 +29,11 @@ function processCommand(command) {
       printLine("Opening Log Feed...");
       blogSection.style.display = "block";
       break;
+
+    case "contact":
+      printLine("📡 Contact: management@darthcrios.net or @darthcrios");
+      break;
+
     default:
       printLine(`Unknown command: "${command}"`);
   }
