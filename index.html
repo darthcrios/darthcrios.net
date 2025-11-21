@@ -2,79 +2,187 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Darth Críos Network</title>
   <link rel="icon" href="images/favicons.png" type="image/png">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+  
+<!-- PREVIEW PAGE -->
+<div id="preview">
+  <h1>Críos</h1>
+  <p>Music Producer • DJ • Sound Designer</p>
+  <button id="enter-btn">Enter Site</button>
+</div>
 
 <!-- MAIN PAGE -->
-  <div class="screen">
-    <div class="status-bar">
-      <span>STATUS: ENCRYPTED</span>
-      <span class="right">ACTIVE AGENTS: 001</span>
+<div id="main">
+  <!-- HEADER -->
+  <header class="hero">
+    <!--<div class="overlay">
+      <p>Electronic Music | Global Community | Irish Roots</p>
+    </div>-->
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="https://darthcrios.bandcamp.com/">Store</a></li>
+    </ul>
+  </nav>
+
+  <!-- MUSIC COLLECTION -->
+  <section>
+  <h2>Music Collection</h2>
+  <div id="tracks-container" class="tracks">
+    <!-- JS will inject tracks here -->
+  </div>
+</section>
+
+<!-- LATEST VIDEOS -->
+<section class="videos">
+  <h2>Latest Videos</h2>
+  <div class="video-grid">
+    
+    <!-- Video 1 -->
+    <div class="video-item">
+      <iframe 
+        src="https://youtu.be/cz0Zb3zJHGI?si=xAFGK51ob4p3lntR" 
+        title="Latest Vlog"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
     </div>
 
-    <div class="terminal">
-      <pre id="output">DCN Terminal v3.0 - to use terminal type Help</pre>
-      <div class="input-line">
-        <span class="prompt">λ</span>
-        <input type="text" id="terminal-input" autofocus />
+    <!-- Video 2 -->
+    <div class="video-item">
+      <iframe 
+        src="https://youtu.be/Sry6JFFNHZo?si=0e1zEq1ojvp6MZ-e" 
+        title="Funky Disco Mix"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="video-item">
+      <iframe 
+        src="https://www.youtube.com/live/bbPLFEhNuU0?si=c7CXcGxGmdFYkPbB" 
+        title="Making Music on Live Stream"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+  <!-- BLOG PREVIEW
+  <section class="blog">
+    <h2>From the Blog</h2>
+    <div class="blog-grid">
+      <div class="blog-post">
+        <h3>Studio Tips for Producers</h3>
+        <p>Learn how to optimize your workflow and get more out of your sessions...</p>
+        <p><a href="musicblog.html">More</a></p>
+      </div>
+      <div class="blog-post">
+        <h3>New Artist Spotlight</h3>
+        <p>Meet the next wave of talent joining the Clovermind Music community...</p>
+        <p><a href="musicblog.html">More</a></p>
       </div>
     </div>
+  </section> -->
 
-    <div class="nav">
-      <a href="blog.html">Blog</a>
-      <a href="https://darthcrios.bandcamp.com/">Music</a>
-      <a href="https://open.spotify.com/artist/1FaMNHfnk9fbCj5DYxkQFJ?si=o-Sq9ZxRTvSfa2rnAD1U4Q">Spotify</a>
-      <a href="https://www.youtube.com/@darthcrios">Youtube</a>
-      <a href="https://www.twitch.tv/darthcrioslive">Twitch</a>
-      <a href="https://clovermindmusic.gumroad.com/">Store</a>
+  <!-- Radio -->
+  <!-- <section class="radio">
+  <h2>Live Stream</h2>
+
+  <div class="audio-player">
+    <div class="artwork-wrapper">
+      <img id="albumArt" src="../Website Images/Singlesp1 copy.jpg" alt="Album Art" />
     </div>
 
-    <div class="audio-player">
-      <p>🔊 Streaming from the DCN Radio Server: <span id="currentSong">Loading...</span></p>
-            <audio id="liveAudio" controls>
-                <source src="https://radio.darthcrios.net/stream" type="audio/mpeg"> Your browser does not support the audio tag.</audio>
-                  <script>
-        // Fetch current song metadata from Icecast
-        function updateSongInfo() {
-            fetch("https://radio.darthcrios.net/status-json.xsl")
-                .then(response => response.json())
-                .then(data => {
-                    let song = data.icestats.source.title || "Unknown Track";
-                    document.getElementById("currentSong").textContent = song;
-                })
-                .catch(() => {
-                    document.getElementById("currentSong").textContent = "Error fetching song info";
-                });
-        }
-        setInterval(updateSongInfo, 5000); // Update every 5 seconds
-        updateSongInfo(); // Initial load
-    </script>
-    </div>
+    <p>
+      🔊 Streaming from the Clovermind Radio Server:
+      <span id="currentSong">Loading...</span>
+    </p>
 
-    <div id="lore-archive" class="lore">
-      <h2>💾 The Archive</h2>
-      <p>Games, hidden broadcasts, terminal fragments, and mystery signals will appear here...</p>
-      <p><a href="archive.html">The Archive</a></p>
-      <p><a href="game.html">Play Asteroid Destroyer</a></p>
-      <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/track=3945392888/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://darthcrios.bandcamp.com/track/kollective-riverbend-ramparts-remix">Kollective Riverbend (Ramparts Remix) by Críos</a></iframe>
-    </div>
+    <p class="listeners">👥 Listeners: <span id="listenerCount">0</span></p>
 
-    <div id="blog-feed" class="blog">
-      <h2>📡 Latest Transmission Log</h2>
-      <p><img src="images/Live from the Drop Below.png" alt ="gigflyer" height="200px" style="float: right;"></p>
-      <p><strong>05.07.2025:</strong> Rejection Protocol</p>
-      <p><strong><a href="archive/rejectionprotocol.html">[More]</strong></a>
-      <p><strong>05.08.2025:</strong> Echoes in the Wires</p>
-      <p><strong><a href="archive/echoesinthewires.html">[More]</strong></a>
-      <p><strong>05.09.2025:</strong> Frequency Trap</p>
-      <p><strong><a href="archive/frequencytrap.html">[More]</strong></a>
-    </div>
+    <audio id="liveAudio" controls preload="none">
+      <source src="https://radio.darthcrios.net/stream" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
   </div>
-  <div id="footer">Clovermind Music LLC 2025. All Rights Reserved | www.darthcrios.net</div>
-  <script src="script.js"></script>
+
+  <script>
+    const fallbackArt = "AlbumArt/SinglesCover.jpg"; // ← your default logo path
+
+    function updateSongInfo() {
+      fetch("https://radio.darthcrios.net/status-json.xsl")
+        .then(response => response.json())
+        .then(data => {
+          let source = data.icestats.source;
+          let song = "Unknown Track";
+          let listeners = 0;
+          let artUrl = fallbackArt;
+
+          // Handle array or single source object
+          if (Array.isArray(source) && source.length) {
+            song = source[0].title || song;
+            listeners = source[0].listeners || 0;
+            if (source[0].albumart) artUrl = source[0].albumart;
+          } else if (source && source.title) {
+            song = source.title;
+            listeners = source.listeners || 0;
+            if (source.albumart) artUrl = source.albumart;
+          }
+
+          // Update song title
+          const songEl = document.getElementById("currentSong");
+          if (songEl.textContent !== song) {
+            songEl.style.opacity = "0.4";
+            setTimeout(() => {
+              songEl.textContent = song;
+              songEl.style.opacity = "1";
+            }, 250);
+          }
+
+          // Update listeners
+          document.getElementById("listenerCount").textContent = listeners;
+
+          // Update artwork (with fallback)
+          const artEl = document.getElementById("albumArt");
+          artEl.src = artUrl || fallbackArt;
+        })
+        .catch(err => {
+          document.getElementById("currentSong").textContent = "Error fetching song info";
+          console.error("Radio metadata fetch error:", err);
+        });
+    }
+
+    // Refresh every 5 seconds
+    setInterval(updateSongInfo, 5000);
+    updateSongInfo();
+  </script>
+</section> -->
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© Clovermind Music LLC 2025. All Rights Reserved | www.darthcrios.net</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/darthcrios/">Instagram</a> | 
+      <a href="https://soundcloud.com/chrisgrehanmusic">SoundCloud</a> | 
+      <a href="https://www.youtube.com/@darthcrios">YouTube</a>
+    </div>
+  </footer>
+</div>
+
+<script src="js/script.js"></script>
 </body>
 </html>
