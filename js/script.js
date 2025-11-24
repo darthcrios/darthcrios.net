@@ -38,7 +38,7 @@ const tracksData = [
     audio: "Masters/Críos - YouGotTheFeeling.mp3"
   },
   {
-    title: "Killer Vibes (Free Download)",
+    title: "Killer Vibes",
     albumArt: "AlbumArt/KillerVibesArt.jpg",
     audio: "Masters/Críos - KillerVibes.mp3"
   },
