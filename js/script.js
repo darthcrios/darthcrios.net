@@ -78,11 +78,33 @@ tracksData.forEach(track => {
     <img src="${track.albumArt}" alt="${track.title} Album Art">
     <div class="track-title">${track.title}</div>
     <div class="track-wave"></div>
-    <audio controls>
+
+    <!-- Hidden audio element -->
+    <audio preload="none" controlsList="nodownload noplaybackrate" class="hidden-audio">
       <source src="${track.audio}" type="${type}">
-      Your browser does not support the audio element.
     </audio>
+
+    <!-- Custom buttons -->
+    <div class="player-controls">
+      <button class="play-btn">▶️ Play</button>
+      <button class="pause-btn">⏸️ Pause</button>
+    </div>
   `;
 
   tracksContainer.appendChild(trackDiv);
+});
+
+// Hook up custom buttons
+document.querySelectorAll('.track').forEach(trackEl => {
+  const audio = trackEl.querySelector('audio');
+  const playBtn = trackEl.querySelector('.play-btn');
+  const pauseBtn = trackEl.querySelector('.pause-btn');
+
+  playBtn.addEventListener('click', () => {
+    audio.play();
+  });
+
+  pauseBtn.addEventListener('click', () => {
+    audio.pause();
+  });
 });
