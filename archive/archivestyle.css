@@ -326,61 +326,6 @@ a {
 
 .links a:hover { color: #fff; }
 
-/* ===================================
-   Radio
-   =================================== */
-.radio {
-  text-align: center;
-  background-color: #111;
-  color: #eee;
-  padding: 2rem 1rem;
-  border-radius: 8px;
-  max-width: 500px;
-  margin: 2rem auto;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.radio h2 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-.artwork-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.artwork-wrapper img {
-  width: 200px;
-  height: 200px;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-}
-
-.audio-player p {
-  margin: 0.5rem 0;
-  font-size: 1.1rem;
-}
-
-#currentSong {
-  font-weight: bold;
-  color: #EB6123;
-  transition: opacity 0.3s ease;
-}
-
-.listeners {
-  font-size: 0.95rem;
-  opacity: 0.8;
-}
-
-audio {
-  width: 100%;
-  border-radius: 6px;
-  outline: none;
-  margin-top: 1rem;
-}
 
 /* ===================================
    FOOTER
