@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('blogposts.json')
         .then(response => response.json())
         .then(data => {
-            const blogPostsSection = document.getElementById('archive-posts');
+            const archivePostsSection = document.getElementById('archive-posts');
             // Sort posts by date in descending order
             data.sort((a, b) => new Date(b.date) - new Date(a.date));
             
