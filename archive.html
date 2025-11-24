@@ -11,13 +11,9 @@
 <body>
   
   <!-- HEADER -->
-  <header class="hero">
-    <!--<div class="overlay">
-      <p>Electronic Music | Global Community | Irish Roots</p>
-    </div>-->
-  </header>
+  <header class="hero"></header>
 
-    <!-- NAVIGATION -->
+  <!-- NAVIGATION -->
   <nav class="navbar">
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -27,21 +23,19 @@
     </ul>
   </nav>
 
-  <div class="screen">
+  <main class="screen">
     <div class="status-bar">
       <span>Críos Adventures Archive</span>
-      <span> Code: Críos Archive - [access granted]</span>
+      <span>Code: Críos Archive - [access granted]</span>
     </div>
-    
-        <div id="main-content">
-            <section class="archive-posts" id="archive-posts">
-                <!-- Archive posts will be dynamically inserted here -->
-            </section>
-        <script src="js/blogscript.js"></script>
-        </div>
-    </div>
+
+    <section class="archive-posts" id="archive-posts">
+      <!-- Archive posts will be dynamically injected here -->
+    </section>
+
     <a href="index.html" class="back-link">← Return to Home</a>
-    
+  </main>
+
   <!-- FOOTER -->
   <footer>
     <p>© Clovermind Music LLC 2025. All Rights Reserved | www.darthcrios.net</p>
@@ -51,6 +45,9 @@
       <a href="https://www.youtube.com/@darthcrios">YouTube</a>
     </div>
   </footer>
-</div>
+
+  <!-- Correct script placement -->
+  <script src="js/archivescript.js"></script>
+
 </body>
 </html>
