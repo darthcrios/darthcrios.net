@@ -75,7 +75,7 @@ html, body {
    HEADER / HERO
 =================================== */
 .hero {
-  background: url('images/MusicGearHead.jpg') no-repeat center center/cover;
+  background: url('../images/MusicGearHead.jpg') no-repeat center center/cover;
     height: 70vh;
     position: relative;
     display: flex;
@@ -243,12 +243,12 @@ html, body {
    Blog Layout (Structure + New Theme)
 =============================== */
 
-.blog {
+.archive {
     padding: 3rem 1rem;
     text-align: center;
 }
 
-.blog-header {
+.archive-header {
     font-size: 2rem;
     border-bottom: 1px solid var(--accent);
     padding-bottom: 0.5rem;
@@ -256,14 +256,14 @@ html, body {
     color: var(--accent);
 }
 
-.blog-grid {
+.archive-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
 
-.blog-post {
+.archive-post {
     background-color: #222; /* dark background */
     padding: 2rem;
     border-radius: 10px;
@@ -271,18 +271,18 @@ html, body {
     box-shadow: 0 0 10px #a259ff22; /* subtle glow if desired */
 }
 
-.blog-post h2 {
+.archive-post h2 {
     margin-top: 0;
     color: #e60000; /* heading color */
 }
 
-.blog-post .date {
+.archive-post .date {
     font-size: 0.9rem;
     color: var(--accent);
     margin-bottom: 1rem;
 }
 
-.blog-post p {
+.archive-post p {
     line-height: 1.6;
     color: #ccc; /* paragraph color */
 }
@@ -304,57 +304,6 @@ html, body {
 
 a {
     color: #39ff14;
-}
-
-.archive-header {
-  color: #a259ff;
-  font-size: 2rem;
-  border-bottom: 1px solid #a259ff;
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.archive-post {
-  margin-bottom: 3rem;
-  padding: 1rem;
-  background-color: #111;
-  border: 1px solid #a259ff;
-  box-shadow: 0 0 10px #a259ff22;
-}
-
-.archive-post h2 {
-  margin-top: 0;
-  color: #e60000;
-}
-
-.archive-post .date {
-  font-size: 0.9rem;
-  color: #a259ff;
-  margin-bottom: 1rem;
-}
-
-.archive-post p {
-  line-height: 1.6;
-  color: #e60000;
-}
-
-.back-link {
-  display: inline-block;
-  margin-top: 2rem;
-  text-decoration: none;
-  color: #a259ff;
-  border: 1px solid #a259ff;
-  padding: 0.5rem 1rem;
-  transition: all 0.2s ease;
-}
-
-.back-link:hover {
-  background-color: #a259ff;
-  color: #0a0a0a;
-}
-
-a {
-  color: green;
 }
 
 
