@@ -1,0 +1,406 @@
+/* ===================================
+   ROOT VARIABLES (DartCríos Theme)
+=================================== */
+:root {
+  --bg: #0B0B0C;          /* deep black */
+  --text: #e60000;        /* neon red */
+  --accent: #a259ff;      /* neon purple accent */
+
+  --track-bg: #101013;
+  --track-hover: #1A1A1A;
+
+  --wave-bg: #333;
+  --wave-accent: #a259ff;
+}
+
+/* ===================================
+   GLOBAL RESET & BODY
+=================================== */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Share Tech Mono', monospace;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ===================================
+   PREVIEW SCREEN
+=================================== */
+#preview {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  text-align: center;
+  transition: opacity 0.8s ease;
+  z-index: 10;
+}
+
+#preview h1 {
+  font-size: 48px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+#preview p {
+  font-size: 18px;
+  margin-bottom: 32px;
+  color: #aaa;
+}
+
+#enter-btn {
+  padding: 14px 28px;
+  font-size: 16px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#enter-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ===================================
+   HEADER / HERO
+=================================== */
+.hero {
+  background: url('images/MusicGearHead.jpg') no-repeat center center/cover;
+    height: 70vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero .overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+/* MOBILE RESPONSIVENESS FOR HERO */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+        background-position: center top;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+/* ===================================
+   NAVIGATION
+=================================== */
+.navbar {
+  background-color: #000;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.navbar a {
+  font-weight: bold;
+  color: var(--text);
+  text-decoration: none;
+  position: relative;
+  font-size: 2.2rem; /* adjustable font size without h3 */
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after { width: 100%; }
+
+/* ===================================
+   MAIN WRAPPER
+=================================== */
+#main {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  padding: 40px 24px;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+#main h2 {
+  margin-bottom: 24px;
+  font-size: 32px;
+}
+
+/* ===================================
+   TRACK GRID
+=================================== */
+.tracks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.track {
+  background: var(--track-bg);
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.track:hover {
+  background: var(--track-hover);
+  transform: translateY(-4px);
+}
+
+.track img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.track-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+  color: var(--text);
+}
+
+.track-wave {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--wave-bg) 10%,
+    var(--wave-accent) 20%,
+    var(--wave-bg) 30%,
+    var(--wave-bg) 40%,
+    var(--wave-accent) 50%,
+    var(--wave-bg) 60%
+  );
+  background-size: 200% 100%;
+  animation: waveMove 1.5s linear infinite;
+}
+
+@keyframes waveMove {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.track audio {
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 4px;
+  background: #111;
+}
+
+/* ===============================
+   Blog Layout (Structure + New Theme)
+=============================== */
+
+.blog {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.blog-header {
+    font-size: 2rem;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    color: var(--accent);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.blog-post {
+    background-color: #222; /* dark background */
+    padding: 2rem;
+    border-radius: 10px;
+    color: #ccc; /* main text color */
+    box-shadow: 0 0 10px #a259ff22; /* subtle glow if desired */
+}
+
+.blog-post h2 {
+    margin-top: 0;
+    color: #e60000; /* heading color */
+}
+
+.blog-post .date {
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.blog-post p {
+    line-height: 1.6;
+    color: #ccc; /* paragraph color */
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    text-decoration: none;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.back-link:hover {
+    background-color: var(--accent);
+    color: #0a0a0a;
+}
+
+a {
+    color: #39ff14;
+}
+
+
+/* ===================================
+   LINKS (Social + Blog Links)
+=================================== */
+.links {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  justify-content: center;
+}
+
+.links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.links a:hover { color: #fff; }
+
+/* ===================================
+   Radio
+   =================================== */
+.radio {
+  text-align: center;
+  background-color: #111;
+  color: #eee;
+  padding: 2rem 1rem;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.radio h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.artwork-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.artwork-wrapper img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.audio-player p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+#currentSong {
+  font-weight: bold;
+  color: #EB6123;
+  transition: opacity 0.3s ease;
+}
+
+.listeners {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+audio {
+  width: 100%;
+  border-radius: 6px;
+  outline: none;
+  margin-top: 1rem;
+}
+
+/* ===================================
+   FOOTER
+=================================== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #000;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+footer .socials a {
+  margin: 0 8px;
+  color: var(--text);
+  transition: color 0.3s;
+}
+
+footer .socials a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
