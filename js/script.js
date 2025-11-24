@@ -78,7 +78,7 @@ tracksData.forEach(track => {
     <img src="${track.albumArt}" alt="${track.title} Album Art">
     <div class="track-title">${track.title}</div>
     <div class="track-wave"></div>
-    <audio controls preload="none">
+    <audio controls>
       <source src="${track.audio}" type="${type}">
       Your browser does not support the audio element.
     </audio>
