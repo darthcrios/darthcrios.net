@@ -20,47 +20,47 @@ const tracksData = [
   {
     title: "Vibe With Me",
     albumArt: "AlbumArt/VWH4.jpg",
-    audio: "Masters/Críos - VibeWithMe.mp3"
+    audio: "Masters/VibeWithMe.mp3"
   },
   {
     title: "Kollective - Riverbend Remix",
     albumArt: "AlbumArt/SinglesRemix.jpg",
-    audio: "Masters/Críos - Riverbend.mp3"
+    audio: "Masters/Riverbend.mp3"
   },
   {
     title: "Keep Moving",
     albumArt: "AlbumArt/Keep Moving.jpg",
-    audio: "Masters/Críos - KeepMoving.mp3"
+    audio: "Masters/KeepMoving.mp3"
   },
   {
     title: "You Got the Feeling Ft Alan Martin",
     albumArt: "AlbumArt/SinglesCover.jpg",
-    audio: "Masters/Críos - YouGotTheFeeling.mp3"
+    audio: "Masters/YouGotTheFeeling.mp3"
   },
   {
     title: "Killer Vibes",
     albumArt: "AlbumArt/KillerVibesArt.jpg",
-    audio: "Masters/Críos - KillerVibes.mp3"
+    audio: "Masters/KillerVibes.mp3"
   },
   {
     title: "LA Rain",
     albumArt: "AlbumArt/LA Rain.jpg",
-    audio: "Masters/Críos - LARain.mp3"
+    audio: "Masters/LARain.mp3"
   },
   {
     title: "Isolated Red",
     albumArt: "AlbumArt/red_isolated.jpg",
-    audio: "Masters/Críos - IsolatedRed.mp3"
+    audio: "Masters/IsolatedRed.mp3"
   },
   {
     title: "Puca",
     albumArt: "AlbumArt/Beach Ghost.jpeg",
-    audio: "Masters/Críos - GhostontheBeach.mp3"
+    audio: "Masters/GhostontheBeach.mp3"
   },
   {
     title: "Move Yo Body Ft Alex Arcana",
     albumArt: "AlbumArt/movyobody2.jpg",
-    audio: "Masters/Críos - MoveyoBody.mp3"
+    audio: "Masters/MoveyoBody.mp3"
   },
 
 ];
