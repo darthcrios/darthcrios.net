@@ -1,11 +1,17 @@
-// Simple Críos Radio web app
+// Simple Críos Radio web app with secret unlock
 const audioEl = document.getElementById('radioAudio');
 const playPauseBtn = document.getElementById('playPauseBtn');
 const statusText = document.getElementById('statusText');
 const nowPlayingEl = document.getElementById('nowPlaying');
 
+const secretInput = document.getElementById('secretCode');
+const unlockBtn = document.getElementById('unlockBtn');
+const secretStatus = document.getElementById('secretStatus');
+const secretContent = document.getElementById('secretContent');
+
 let isPlaying = false;
 
+// Radio logic
 async function fetchNowPlaying() {
   try {
     const res = await fetch('https://radio.darthcrios.net/status-json.xsl', {
@@ -56,6 +62,30 @@ playPauseBtn.addEventListener('click', async () => {
   }
 });
 
+// Secret unlock logic
+function checkSecret() {
+  const code = (secretInput.value || '').trim().toUpperCase();
+  if (!code) {
+    secretStatus.textContent = 'Enter a code.';
+    return;
+  }
+
+  if (code === 'FUCKICE') {
+    secretStatus.textContent = 'Unlocked. Enjoy the secret track.';
+    secretContent.classList.remove('hidden');
+  } else {
+    secretStatus.textContent = 'Nope.';
+  }
+}
+
+unlockBtn.addEventListener('click', checkSecret);
+
+secretInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    checkSecret();
+  }
+});
+
 // Register service worker for PWA if available
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -66,5 +96,4 @@ if ('serviceWorker' in navigator) {
 }
 
 // Kick things off
-setStatus('Ready');
 fetchNowPlaying();

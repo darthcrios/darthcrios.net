@@ -1,5 +1,5 @@
 // Basic service worker for Críos Radio PWA
-const CACHE_NAME = 'crios-radio-v1';
+const CACHE_NAME = 'crios-radio-v2';
 const ASSETS = [
   './',
   './index.html',

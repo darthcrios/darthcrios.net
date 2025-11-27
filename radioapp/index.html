@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Críos Live App</title>
+  <title>Críos Radio</title>
   <meta name="theme-color" content="#000000" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="stylesheet" href="styles.css" />
@@ -13,8 +13,8 @@
     <header class="app-header">
       <div class="logo-circle">CR</div>
       <div class="titles">
-        <h1>Críos Live</h1>
-        <p class="subtitle">Streaming from DCN Radio Server</p>
+        <h1>Críos Radio</h1>
+        <p class="subtitle">Streaming from Clovermind Radio</p>
       </div>
     </header>
 
@@ -25,7 +25,30 @@
 
     <section class="controls">
       <button id="playPauseBtn" class="btn primary">Play</button>
-      <p id="statusText" class="status">Connecting…</p>
+      <p id="statusText" class="status">Ready</p>
+    </section>
+
+    <section class="secret">
+      <h2 class="secret-title">Secret Unlock</h2>
+      <p class="secret-text">Enter the code to unlock a hidden track.</p>
+      <div class="secret-row">
+        <input
+          id="secretCode"
+          type="password"
+          autocomplete="off"
+          placeholder="Enter code"
+        />
+        <button id="unlockBtn" class="btn ghost">Unlock</button>
+      </div>
+      <p id="secretStatus" class="status small"></p>
+      <div id="secretContent" class="secret-content hidden">
+        <p class="secret-text">Unlocked: Secret track</p>
+        <audio id="secretAudio" controls>
+          <!-- Replace the src below with the URL or path to your MP3 -->
+          <source src="secret/unlocked-track.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
     </section>
 
     <footer class="footer">
