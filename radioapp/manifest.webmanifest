@@ -1,0 +1,10 @@
+{
+  "name": "Cr\u00edos Radio",
+  "short_name": "Cr\u00edos Radio",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "description": "Listen to the Clovermind Radio stream from Cr\u00edos on your phone.",
+  "icons": []
+}

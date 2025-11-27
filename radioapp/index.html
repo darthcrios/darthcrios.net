@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Críos Live</title>
+  <meta name="theme-color" content="#000000" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="logo-circle">CR</div>
+      <div class="titles">
+        <h1>Críos Live</h1>
+        <p class="subtitle">Streaming from DCN Radio Server</p>
+      </div>
+    </header>
+
+    <section class="now-playing">
+      <p class="label">NOW PLAYING</p>
+      <p id="nowPlaying" class="track">Loading…</p>
+    </section>
+
+    <section class="controls">
+      <button id="playPauseBtn" class="btn primary">Play</button>
+      <p id="statusText" class="status">Connecting…</p>
+    </section>
+
+    <footer class="footer">
+      <p>Tap the browser menu and choose “Add to Home Screen” to install.</p>
+    </footer>
+  </main>
+
+  <audio id="radioAudio">
+    <source src="https://radio.darthcrios.net/stream" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <script src="app.js"></script>
+</body>
+</html>
