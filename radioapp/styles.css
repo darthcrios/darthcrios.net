@@ -1,3 +1,4 @@
+/* EXACT ORIGINAL STYLES PROVIDED */
 :root {
   --bg: #000000;
   --red: #e60000;
@@ -58,7 +59,6 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
-
 
 .titles h1 {
   margin: 0;
@@ -122,26 +122,11 @@ body {
   border: 1px solid var(--purple);
 }
 
-.btn.primary:active,
-.btn.ghost:active {
-  transform: scale(0.97);
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
-}
-
-.status is a {
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
 .status.small {
   font-size: 0.75rem;
 }
 
-.chat-section {
-  margin-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 16px;
-}
+/* CHAT */
 .chat-box {
   max-height: 200px;
   overflow-y: auto;
@@ -151,10 +136,12 @@ body {
   margin-bottom: 8px;
   font-size: 0.85rem;
 }
+
 .chat-input-row {
   display: flex;
   gap: 8px;
 }
+
 .chat-input-row input {
   flex: 1;
   padding: 8px;
@@ -163,14 +150,7 @@ body {
   background: rgba(0,0,0,0.4);
   color: var(--text);
 }
-.chat-input-row button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 999px;
-  background: var(--purple);
-  color: var(--text);
-  cursor: pointer;
-}
+
 .chat-message {
   margin-bottom: 4px;
   line-height: 1.3;
@@ -182,73 +162,10 @@ body {
   border-radius: 10px;
   margin-bottom: 20px;
 }
-.username-setup input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  border-radius: 6px;
-  border: 1px solid #333;
-  background: #000;
-  color: #fff;
-}
 
-
-
-.secret {
-  margin-bottom: 32px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.secret-title {
-  margin: 0 0 6px;
-  font-size: 1rem;
-}
-
-.secret-text {
-  margin: 0 0 10px;
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-.secret-row {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.secret-row input {
-  flex: 1;
-  padding: 8px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(0, 0, 0, 0.5);
-  color: var(--text);
-  outline: none;
-  font-size: 0.9rem;
-}
-
-.secret-row input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.secret-content {
-  margin-top: 4px;
-}
-
-.hidden {
-  display: none;
-}
-
-.footer {
+.typing-indicator {
   font-size: 0.75rem;
   color: var(--muted);
-  opacity: 0.9;
-}
-
-/* Small screens */
-@media (max-width: 480px) {
-  .app {
-    padding-top: 32px;
-  }
+  margin-top: 4px;
+  padding-left: 5px;
 }
