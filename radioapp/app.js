@@ -70,7 +70,7 @@ function checkSecret() {
     return;
   }
 
-  if (code === 'Bad Dream') {
+  if (code === 'BADDREAM') {
     secretStatus.textContent = 'Unlocked. Enjoy the secret track.';
     secretContent.classList.remove('hidden');
   } else {
@@ -105,6 +105,9 @@ let username = localStorage.getItem("criosUsername") || null;
 const usernameSetup = document.getElementById("usernameSetup");
 const usernameInput = document.getElementById("usernameInput");
 const saveUsernameBtn = document.getElementById("saveUsernameBtn");
+const chatInput = document.getElementById("chatInput");
+const sendBtn = document.getElementById("sendBtn");
+const chatBox = document.getElementById("chatBox");
 
 if (!username) {
   usernameSetup.style.display = "block";
