@@ -7,6 +7,36 @@
   <meta name="theme-color" content="#000000" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="stylesheet" href="styles.css" />
+
+  <script type="module">
+  // Firebase SDKs
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } 
+    from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+  // Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyCWcj56P_j2Z-XjIVweKSMvYl-Is2VuhQ4",
+    authDomain: "clovermind-radio.firebaseapp.com",
+    projectId: "clovermind-radio",
+    storageBucket: "clovermind-radio.firebasestorage.app",
+    messagingSenderId: "981911668964",
+    appId: "1:981911668964:web:0c78e10736db26ddc604f1",
+    measurementId: "G-XGJE5GRTHZ"
+  };
+
+  // Init Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Make db global so app.js can use it
+  window.db = db;
+  window.firebaseCollection = collection;
+  window.firebaseAddDoc = addDoc;
+  window.firebaseQuery = query;
+  window.firebaseOrderBy = orderBy;
+  window.firebaseOnSnapshot = onSnapshot;
+</script>
 </head>
 <body>
   <main class="app">
@@ -52,6 +82,13 @@
         </audio>
       </div>
     </section>
+
+    <div id="usernameSetup" class="username-setup">
+  <h2>Choose a username</h2>
+  <input id="usernameInput" type="text" placeholder="Your name…">
+  <button id="saveUsernameBtn">Save</button>
+</div>
+
 
     <footer class="footer">
       <p>Tap the browser menu and choose “Add to Home Screen” to install.</p>

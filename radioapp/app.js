@@ -97,3 +97,66 @@ if ('serviceWorker' in navigator) {
 
 // Kick things off
 fetchNowPlaying();
+
+//UserNames
+
+let username = localStorage.getItem("criosUsername") || null;
+
+const usernameSetup = document.getElementById("usernameSetup");
+const usernameInput = document.getElementById("usernameInput");
+const saveUsernameBtn = document.getElementById("saveUsernameBtn");
+
+if (!username) {
+  usernameSetup.style.display = "block";
+} else {
+  usernameSetup.style.display = "none";
+}
+
+saveUsernameBtn.onclick = () => {
+  const name = usernameInput.value.trim();
+  if (name.length < 2) {
+    alert("Name must be at least 2 characters.");
+    return;
+  }
+  username = name;
+  localStorage.setItem("criosUsername", name);
+  usernameSetup.style.display = "none";
+};
+
+sendBtn.onclick = async () => {
+  const text = chatInput.value.trim();
+  if (!text || !username) return;
+
+  await window.firebaseAddDoc(
+    window.firebaseCollection(window.db, "chat"),
+    {
+      msg: text,
+      user: username,
+      ts: Date.now()
+    }
+  );
+
+  chatInput.value = "";
+};
+
+
+const q = window.firebaseQuery(
+  window.firebaseCollection(window.db, "chat"),
+  window.firebaseOrderBy("ts")
+);
+
+window.firebaseOnSnapshot(q, (snap) => {
+  chatBox.innerHTML = "";
+  snap.forEach((doc) => {
+    const d = doc.data();
+    const line = document.createElement("div");
+    line.className = "chat-message";
+    line.textContent = `${d.user}: ${d.msg}`;
+    chatBox.appendChild(line);
+  });
+  chatBox.scrollTop = chatBox.scrollHeight;
+});
+
+
+
+
