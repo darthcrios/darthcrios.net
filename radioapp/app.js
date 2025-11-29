@@ -70,7 +70,7 @@ function checkSecret() {
     return;
   }
 
-  if (code === 'FUCKICE') {
+  if (code === 'Bad Dream') {
     secretStatus.textContent = 'Unlocked. Enjoy the secret track.';
     secretContent.classList.remove('hidden');
   } else {
