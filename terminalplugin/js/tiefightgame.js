@@ -256,14 +256,15 @@ function draw() {
         ctx.fill();
     });
 
-    // SCORE
+    // SCORE 
     ctx.fillStyle = "white";
     ctx.font = "20px Arial";
     ctx.fillText("Score: " + player.score, 10, 25);
 
     // LIVES
     ctx.font = "20px Arial";
-    ctx.fillText("Lives: " + "❤️".repeat(player.lives), 460, 25);
+    ctx.fillText("Lives: " + "❤".repeat(player.lives), canvas.width - 10, 25);
+;
 }
 
 // GAME LOOP
