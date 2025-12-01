@@ -1,148 +1,61 @@
-/* FULL UPDATED APP.JS WITH REALTIME CHAT, TYPING, COLORS, TIMESTAMPS */
-
+// --- RADIO ---
 const playPauseBtn = document.getElementById("playPauseBtn");
 const radioAudio = document.getElementById("radioAudio");
+const statusText = document.getElementById("statusText");
+const nowPlaying = document.getElementById("nowPlaying");
 
-const sendBtn = document.getElementById("sendBtn");
-const chatInput = document.getElementById("chatInput");
-const chatBox = document.getElementById("chatBox");
-const typingIndicator = document.getElementById("typingIndicator");
+let isPlaying = false;
 
-const usernameSetup = document.getElementById("usernameSetup");
-const usernameInput = document.getElementById("usernameInput");
-const saveUsernameBtn = document.getElementById("saveUsernameBtn");
-
-const chatPing = document.getElementById("chatPing");
-
-let username = localStorage.getItem("criosUsername");
-let typingTimeout;
-let lastMsgCount = 0;
-
-/* USERNAME */
-if (username) {
-  usernameSetup.style.display = "none";
-  startChatListener();
-  listenForTyping();
-}
-
-saveUsernameBtn.addEventListener("click", () => {
-  username = usernameInput.value.trim();
-  if (!username) return;
-  localStorage.setItem("criosUsername", username);
-  usernameSetup.style.display = "none";
-
-  startChatListener();
-  listenForTyping();
-});
-
-/* RADIO */
+// Play / Pause
 playPauseBtn.addEventListener("click", () => {
-  if (radioAudio.paused) {
+  if (!isPlaying) {
     radioAudio.play();
+    isPlaying = true;
     playPauseBtn.textContent = "Pause";
+    statusText.textContent = "Playing…";
   } else {
     radioAudio.pause();
+    isPlaying = false;
     playPauseBtn.textContent = "Play";
+    statusText.textContent = "Paused";
   }
 });
 
-/* USERNAME COLOR */
-function usernameColor(name) {
-  const colors = ["#e60000", "#a259ff", "#4ade80", "#60a5fa", "#facc15"];
-  let hash = 0;
-  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
-  return colors[Math.abs(hash) % colors.length];
+// Pull Now Playing Metadata
+async function updateNowPlaying() {
+  try {
+    const response = await fetch("https://radio.darthcrios.net/status-json.xsl");
+    const data = await response.json();
+    const track = data.icestats?.source?.title || "Unknown";
+    nowPlaying.textContent = track;
+  } catch {
+    nowPlaying.textContent = "Unable to load";
+  }
 }
+setInterval(updateNowPlaying, 5000);
+updateNowPlaying();
 
-/* TIMESTAMP */
-function formatTimestamp(date) {
-  return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-}
+// --- SECRET UNLOCK SYSTEM ---
+const unlockBtn = document.getElementById("unlockBtn");
+const secretCode = document.getElementById("secretCode");
+const secretStatus = document.getElementById("secretStatus");
+const secretContent = document.getElementById("secretContent");
 
-/* SEND MESSAGE */
-sendBtn.addEventListener("click", async () => {
-  const text = chatInput.value.trim();
-  if (!text || !username) return;
+// CHANGE THIS TO YOUR REAL SECRET CODE:
+const CORRECT_CODE = "crios777";
 
-  await firebaseAddDoc(firebaseCollection(db, "messages"), {
-    username,
-    text,
-    timestamp: new Date()
-  });
+unlockBtn.addEventListener("click", () => {
+  const entered = secretCode.value.trim();
 
-  chatInput.value = "";
-  setTyping(false);
+  if (!entered) {
+    secretStatus.textContent = "Enter a code.";
+    return;
+  }
+
+  if (entered === CORRECT_CODE) {
+    secretStatus.textContent = "Unlocked!";
+    secretContent.classList.remove("hidden");
+  } else {
+    secretStatus.textContent = "Incorrect code.";
+  }
 });
-
-/* REALTIME CHAT LISTENER */
-function startChatListener() {
-  const q = firebaseQuery(
-    firebaseCollection(db, "messages"),
-    firebaseOrderBy("timestamp", "asc")
-  );
-
-  firebaseOnSnapshot(q, (snapshot) => {
-    const docs = snapshot.docs;
-
-    if (docs.length > lastMsgCount && lastMsgCount > 0) {
-      chatPing.play().catch(()=>{});
-    }
-
-    lastMsgCount = docs.length;
-
-    chatBox.innerHTML = "";
-
-    docs.forEach((doc) => {
-      const msg = doc.data();
-      if (!msg.timestamp) return;
-
-      const div = document.createElement("div");
-      div.classList.add("chat-message");
-
-      div.innerHTML = `
-        <span class="chat-username" style="color:${usernameColor(msg.username)}">
-          ${msg.username}:
-        </span>
-        <span class="chat-text">${msg.text}</span>
-        <span class="chat-timestamp">
-          ${formatTimestamp(msg.timestamp.toDate())}
-        </span>
-      `;
-
-      chatBox.appendChild(div);
-    });
-
-    chatBox.scrollTop = chatBox.scrollHeight;
-  });
-}
-
-/* TYPING INDICATOR */
-function setTyping(state) {
-  firebaseSetDoc(
-    firebaseDoc(db, "typing", username),
-    { isTyping: state },
-    { merge: true }
-  );
-}
-
-chatInput.addEventListener("input", ()=> {
-  setTyping(true);
-  clearTimeout(typingTimeout);
-  typingTimeout = setTimeout(()=> setTyping(false), 2000);
-});
-
-function listenForTyping() {
-  firebaseFireSnapshot(firebaseCollection(db, "typing"), (snapshot)=> {
-    const typers = [];
-
-    snapshot.forEach((doc)=> {
-      const d = doc.data();
-      if (d.isTyping && doc.id !== username) {
-        typers.push(doc.id);
-      }
-    });
-
-    typingIndicator.textContent =
-      typers.length ? `${typers.join(", ")} is typing…` : "";
-  });
-}
