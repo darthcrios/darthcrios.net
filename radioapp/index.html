@@ -9,35 +9,22 @@
   <link rel="stylesheet" href="styles.css" />
 
   <script type="module">
-  // Firebase SDKs
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } 
-    from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
 
-  // Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyCWcj56P_j2Z-XjIVweKSMvYl-Is2VuhQ4",
-    authDomain: "clovermind-radio.firebaseapp.com",
-    projectId: "clovermind-radio",
-    storageBucket: "clovermind-radio.firebasestorage.app",
-    messagingSenderId: "981911668964",
-    appId: "1:981911668964:web:0c78e10736db26ddc604f1",
-    measurementId: "G-XGJE5GRTHZ"
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyCWcj56P_j2Z-XjIVweKSMvYl-Is2VuhQ4",
+      authDomain: "clovermind-radio.firebaseapp.com",
+      projectId: "clovermind-radio",
+      storageBucket: "clovermind-radio.firebasestorage.app",
+      messagingSenderId: "981911668964",
+      appId: "1:981911668964:web:0c78e10736db26ddc604f1",
+      measurementId: "G-XGJE5GRTHZ"
+    };
 
-  // Init Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  // Make db global so app.js can use it
-  window.db = db;
-  window.firebaseCollection = collection;
-  window.firebaseAddDoc = addDoc;
-  window.firebaseQuery = query;
-  window.firebaseOrderBy = orderBy;
-  window.firebaseOnSnapshot = onSnapshot;
-</script>
+    initializeApp(firebaseConfig);
+  </script>
 </head>
+
 <body>
   <main class="app">
     <header class="app-header">
@@ -60,40 +47,25 @@
       <p id="statusText" class="status">Ready</p>
     </section>
 
+    <!-- SECRET UNLOCK (FULLY RESTORED) -->
     <section class="secret">
       <h2 class="secret-title">Secret Unlock</h2>
       <p class="secret-text">Enter the code to unlock a hidden track.</p>
+
       <div class="secret-row">
-        <input
-          id="secretCode"
-          type="password"
-          autocomplete="off"
-          placeholder="Enter code"
-        />
+        <input id="secretCode" type="password" autocomplete="off" placeholder="Enter code" />
         <button id="unlockBtn" class="btn ghost">Unlock</button>
       </div>
+
       <p id="secretStatus" class="status small"></p>
+
       <div id="secretContent" class="secret-content hidden">
-        <p class="secret-text">Unlocked: Secret track</p>
+        <p class="secret-text">Unlocked: Secret Track</p>
         <audio id="secretAudio" controls>
           <source src="secret/unlocked-track.mp3" type="audio/mpeg" />
         </audio>
       </div>
     </section>
-
-    <div id="usernameSetup" class="username-setup">
-      <h2>Choose a username</h2>
-      <input id="usernameInput" type="text" placeholder="Your name…">
-      <button id="saveUsernameBtn">Save</button>
-    </div>
-
-    <div id="chatBox" class="chat-box"></div>
-    <div id="typingIndicator" class="typing-indicator"></div>
-
-    <div class="chat-input-row">
-      <input id="chatInput" type="text" placeholder="Type..." />
-      <button id="sendBtn" class="btn ghost">Send</button>
-    </div>
 
     <footer class="footer">
       <p>Tap the browser menu and choose “Add to Home Screen” to install.</p>
@@ -104,8 +76,7 @@
     <source src="https://radio.darthcrios.net/stream" type="audio/mpeg" />
   </audio>
 
-  <audio id="chatPing" src="ping.mp3" preload="auto"></audio>
-
   <script src="app.js"></script>
 </body>
 </html>
+
