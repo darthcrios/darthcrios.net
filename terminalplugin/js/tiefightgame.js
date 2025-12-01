@@ -1,3 +1,9 @@
+// Prevent browser scrolling with game controls
+window.addEventListener("keydown", function (e) {
+    const blockKeys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Space", " "];
+    if (blockKeys.includes(e.code) || blockKeys.includes(e.key)) e.preventDefault();
+}, { passive: false });
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 canvas.width = 600;
