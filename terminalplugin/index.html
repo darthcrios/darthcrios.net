@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darth Críos Network</title>
+  <link rel="icon" href="images/favicons.png" type="image/png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="screen">
+    <div class="status-bar">
+      <span>STATUS: ENCRYPTED</span>
+      <span class="right">ACTIVE AGENTS: 001</span>
+    </div>
+
+    <div class="terminal">
+      <pre id="output">DCN Terminal v3.0 - to use terminal type Help</pre>
+      <div class="input-line">
+        <span class="prompt">λ</span>
+        <input type="text" id="terminal-input" autofocus />
+      </div>
+    </div>
+
+    <div class="nav">
+      <a href="blog.html">Blog</a>
+      <a href="https://darthcrios.bandcamp.com/">Music</a>
+      <a href="https://open.spotify.com/artist/1FaMNHfnk9fbCj5DYxkQFJ?si=o-Sq9ZxRTvSfa2rnAD1U4Q">Spotify</a>
+      <a href="https://www.youtube.com/@darthcrios">Youtube</a>
+      <a href="https://www.twitch.tv/darthcrioslive">Twitch</a>
+      <a href="https://clovermindmusic.gumroad.com/">Store</a>
+    </div>
+
+    <div class="audio-player">
+      <p>🔊 Streaming from the DCN Radio Server: <span id="currentSong">Loading...</span></p>
+            <audio id="liveAudio" controls>
+                <source src="https://radio.darthcrios.net/stream" type="audio/mpeg"> Your browser does not support the audio tag.</audio>
+                  <script>
+        // Fetch current song metadata from Icecast
+        function updateSongInfo() {
+            fetch("https://radio.darthcrios.net/status-json.xsl")
+                .then(response => response.json())
+                .then(data => {
+                    let song = data.icestats.source.title || "Unknown Track";
+                    document.getElementById("currentSong").textContent = song;
+                })
+                .catch(() => {
+                    document.getElementById("currentSong").textContent = "Error fetching song info";
+                });
+        }
+        setInterval(updateSongInfo, 5000); // Update every 5 seconds
+        updateSongInfo(); // Initial load
+    </script>
+    </div>
+
+    <div id="lore-archive" class="lore">
+      <h2>💾 The Archive</h2>
+      <p>Games, hidden broadcasts, terminal fragments, and mystery signals will appear here...</p>
+      <p><a href="archive.html">The Archive</a></p>
+      <p><a href="game.html">Play Asteroid Destroyer</a></p>
+      <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/track=3945392888/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://darthcrios.bandcamp.com/track/kollective-riverbend-ramparts-remix">Kollective Riverbend (Ramparts Remix) by Críos</a></iframe>
+    </div>
+
+    <div id="blog-feed" class="blog">
+      <h2>📡 Latest Transmission Log</h2>
+      <p><img src="images/Live from the Drop Below.png" alt ="gigflyer" height="200px" style="float: right;"></p>
+      <p><strong>05.07.2025:</strong> Rejection Protocol</p>
+      <p><strong><a href="archive/rejectionprotocol.html">[More]</strong></a>
+      <p><strong>05.08.2025:</strong> Echoes in the Wires</p>
+      <p><strong><a href="archive/echoesinthewires.html">[More]</strong></a>
+      <p><strong>05.09.2025:</strong> Frequency Trap</p>
+      <p><strong><a href="archive/frequencytrap.html">[More]</strong></a>
+    </div>
+  </div>
+  <div id="footer">Clovermind Music LLC 2025. All Rights Reserved | www.darthcrios.net</div>
+  <script src="script.js"></script>
+</body>
+</html>
