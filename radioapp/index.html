@@ -8,7 +8,6 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
   <main class="app">
     <header class="app-header">
@@ -34,18 +33,22 @@
     <section class="secret">
       <h2 class="secret-title">Secret Unlock</h2>
       <p class="secret-text">Enter the code to unlock a hidden track.</p>
-
       <div class="secret-row">
-        <input id="secretCode" type="password" autocomplete="off" placeholder="Enter code" />
+        <input
+          id="secretCode"
+          type="password"
+          autocomplete="off"
+          placeholder="Enter code"
+        />
         <button id="unlockBtn" class="btn ghost">Unlock</button>
       </div>
-
       <p id="secretStatus" class="status small"></p>
-
       <div id="secretContent" class="secret-content hidden">
-        <p class="secret-text">Unlocked: Secret Track</p>
+        <p class="secret-text">Unlocked: Secret track</p>
         <audio id="secretAudio" controls>
+          <!-- Replace the src below with the URL or path to your MP3 -->
           <source src="secret/unlocked-track.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
         </audio>
       </div>
     </section>
@@ -57,6 +60,7 @@
 
   <audio id="radioAudio">
     <source src="https://radio.darthcrios.net/stream" type="audio/mpeg" />
+    Your browser does not support the audio element.
   </audio>
 
   <script src="app.js"></script>
