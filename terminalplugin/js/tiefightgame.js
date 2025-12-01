@@ -9,167 +9,251 @@ const ctx = canvas.getContext("2d");
 canvas.width = 600;
 canvas.height = 600;
 
-document.addEventListener("keydown", handleKeyDown);
-document.addEventListener("keyup", handleKeyUp);
+// ===== SOUNDS =====
+const soundFire = new Audio("sounds/fire.wav");
+const soundExplosion = new Audio("sounds/explosion.wav");
+const soundThrust = new Audio("sounds/thrust.wav");
 
+// ===== PLAYER =====
 let player = {
     x: canvas.width / 2,
     y: canvas.height / 2,
     angle: 0,
     size: 20,
-    speed: 2,
-    score: 0
+    speed: 0,
+    rotationSpeed: 0.07,
+    maxSpeed: 3,
+    score: 0,
+    thrusting: false
 };
 
+// ===== ARRAYS =====
 let missiles = [];
 let asteroids = [];
 let keys = {};
 let gameOver = false;
+let difficulty = 1;
 
-function handleKeyDown(event) {
-    keys[event.code] = true;
-    if (event.code === "Space") fireMissile();
-}
+// ===== INPUT =====
+document.addEventListener("keydown", e => {
+    keys[e.code] = true;
 
-function handleKeyUp(event) {
-    keys[event.code] = false;
-}
+    if (!gameOver && e.code === "Space") {
+        fireMissile();
+    }
 
+    if (gameOver && e.code === "Space") {
+        restartGame();
+    }
+});
+
+document.addEventListener("keyup", e => {
+    keys[e.code] = false;
+});
+
+// ===== FIRE MISSILE =====
 function fireMissile() {
-    if (gameOver) return;  // Prevent firing if the game is over
+    soundFire.currentTime = 0;
+    soundFire.play();
+
     missiles.push({
         x: player.x,
         y: player.y,
         angle: player.angle,
-        speed: 5
+        speed: 6
     });
 }
 
+// ===== SPAWN ASTEROIDS =====
 function spawnAsteroid() {
-    const size = Math.random() * 30 + 20;
-    const x = Math.random() * canvas.width;
-    const y = Math.random() * canvas.height;
-    const angle = Math.random() * Math.PI * 2;
-    const speed = Math.random() * 1 + 1;
+    const size = Math.random() * 40 + 30;
+    const speed = Math.random() * 1.5 + difficulty;
 
-    asteroids.push({
-        x: x,
-        y: y,
-        size: size,
-        angle: angle,
-        speed: speed
-    });
+    // Spawn at edges only
+    const edges = ["top", "bottom", "left", "right"];
+    const edge = edges[Math.random() * edges.length | 0];
+
+    let x, y;
+    if (edge === "top") { x = Math.random() * canvas.width; y = 0; }
+    if (edge === "bottom") { x = Math.random() * canvas.width; y = canvas.height; }
+    if (edge === "left") { x = 0; y = Math.random() * canvas.height; }
+    if (edge === "right") { x = canvas.width; y = Math.random() * canvas.height; }
+
+    const angle = Math.atan2(player.y - y, player.x - x);
+
+    asteroids.push({ x, y, size, angle, speed });
 }
 
+// ===== EXPLOSION EFFECT =====
+function drawExplosion(x, y) {
+    for (let i = 0; i < 6; i++) {
+        ctx.beginPath();
+        ctx.arc(x + Math.random() * 20 - 10, y + Math.random() * 20 - 10, Math.random() * 5 + 2, 0, Math.PI * 2);
+        ctx.fillStyle = ["orange", "yellow", "red"][Math.floor(Math.random()*3)];
+        ctx.fill();
+    }
+}
+
+// ===== GAME UPDATE =====
 function update() {
     if (gameOver) return;
 
-    if (keys["ArrowLeft"]) player.angle -= 0.1;
-    if (keys["ArrowRight"]) player.angle += 0.1;
+    // ROTATE
+    if (keys["ArrowLeft"]) player.angle -= player.rotationSpeed;
+    if (keys["ArrowRight"]) player.angle += player.rotationSpeed;
 
+    // THRUST
     if (keys["ArrowUp"]) {
-        player.x += Math.cos(player.angle) * player.speed;
-        player.y += Math.sin(player.angle) * player.speed;
+        player.speed = Math.min(player.speed + 0.1, player.maxSpeed);
+        player.thrusting = true;
+        soundThrust.play();
+    } else {
+        player.speed *= 0.98;
+        player.thrusting = false;
+        soundThrust.pause();
     }
 
-    if (keys["ArrowDown"]) {
-        player.x -= Math.cos(player.angle) * player.speed;
-        player.y -= Math.sin(player.angle) * player.speed;
-    }
+    // MOVE PLAYER
+    player.x += Math.cos(player.angle) * player.speed;
+    player.y += Math.sin(player.angle) * player.speed;
 
-    missiles.forEach((missile, index) => {
-        missile.x += Math.cos(missile.angle) * missile.speed;
-        missile.y += Math.sin(missile.angle) * missile.speed;
+    // WRAP PLAYER
+    if (player.x < 0) player.x = canvas.width;
+    if (player.x > canvas.width) player.x = 0;
+    if (player.y < 0) player.y = canvas.height;
+    if (player.y > canvas.height) player.y = 0;
 
-        // Remove missiles that go out of bounds
-        if (missile.x < 0 || missile.x > canvas.width || missile.y < 0 || missile.y > canvas.height) {
-            missiles.splice(index, 1);
+    // MISSILES
+    missiles.forEach((m, i) => {
+        m.x += Math.cos(m.angle) * m.speed;
+        m.y += Math.sin(m.angle) * m.speed;
+
+        // Wrap missiles or delete?
+        if (m.x < 0 || m.x > canvas.width || m.y < 0 || m.y > canvas.height) {
+            missiles.splice(i, 1);
         }
     });
 
-    asteroids.forEach((asteroid, index) => {
-        asteroid.x += Math.cos(asteroid.angle) * asteroid.speed;
-        asteroid.y += Math.sin(asteroid.angle) * asteroid.speed;
+    // ASTEROIDS
+    asteroids.forEach((a, ai) => {
+        a.x += Math.cos(a.angle) * a.speed;
+        a.y += Math.sin(a.angle) * a.speed;
 
-        // Wrap around the screen
-        if (asteroid.x < 0) asteroid.x = canvas.width;
-        if (asteroid.x > canvas.width) asteroid.x = 0;
-        if (asteroid.y < 0) asteroid.y = canvas.height;
-        if (asteroid.y > canvas.height) asteroid.y = 0;
+        // Wrap asteroid
+        if (a.x < 0) a.x = canvas.width;
+        if (a.x > canvas.width) a.x = 0;
+        if (a.y < 0) a.y = canvas.height;
+        if (a.y > canvas.height) a.y = 0;
 
-        // Check for collisions with missiles
-        missiles.forEach((missile, missileIndex) => {
-            const dx = missile.x - asteroid.x;
-            const dy = missile.y - asteroid.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < asteroid.size / 2 + 3) {  // Collision detection
-                // Remove asteroid and missile
-                asteroids.splice(index, 1);
-                missiles.splice(missileIndex, 1);
-                player.score += 10;  // Increase score
+        // Missile collision
+        missiles.forEach((m, mi) => {
+            const dx = m.x - a.x;
+            const dy = m.y - a.y;
+            if (Math.hypot(dx, dy) < a.size / 2) {
+                drawExplosion(a.x, a.y);
+                soundExplosion.currentTime = 0;
+                soundExplosion.play();
+                missiles.splice(mi, 1);
+                asteroids.splice(ai, 1);
+                player.score += 20;
             }
         });
 
-        // Check for collision with player
-        const dx = player.x - asteroid.x;
-        const dy = player.y - asteroid.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < player.size / 2 + asteroid.size / 2) {
-            gameOver = true;  // Game over if player collides with asteroid
+        // Player collision
+        const dx = player.x - a.x;
+        const dy = player.y - a.y;
+        if (Math.hypot(dx, dy) < player.size + a.size / 2) {
+            gameOver = true;
         }
     });
+
+    // Difficulty scaling
+    difficulty += 0.0005;
 }
 
+// ===== DRAW GAME =====
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (gameOver) {
         ctx.fillStyle = "white";
-        ctx.font = "30px Arial";
-        ctx.fillText("Game Over", canvas.width / 2 - 80, canvas.height / 2);
-        ctx.fillText("Score: " + player.score, canvas.width / 2 - 60, canvas.height / 2 + 40);
+        ctx.textAlign = "center";
+        ctx.font = "40px Arial";
+        ctx.fillText("GAME OVER", canvas.width/2, canvas.height/2);
+        ctx.font = "24px Arial";
+        ctx.fillText("Score: " + player.score, canvas.width/2, canvas.height/2 + 40);
+        ctx.fillText("Press SPACE to Restart", canvas.width/2, canvas.height/2 + 80);
         return;
     }
 
+    // PLAYER (triangle ship)
     ctx.save();
     ctx.translate(player.x, player.y);
     ctx.rotate(player.angle);
+
     ctx.fillStyle = "white";
-    ctx.fillRect(-10, -10, 20, 20);  // Player is a square
+    ctx.beginPath();
+    ctx.moveTo(20, 0);
+    ctx.lineTo(-15, -12);
+    ctx.lineTo(-15, 12);
+    ctx.closePath();
+    ctx.fill();
+
+    // Thruster flame
+    if (player.thrusting) {
+        ctx.beginPath();
+        ctx.moveTo(-18, 0);
+        ctx.lineTo(-30, -8);
+        ctx.lineTo(-30, 8);
+        ctx.closePath();
+        ctx.fillStyle = "orange";
+        ctx.fill();
+    }
+
     ctx.restore();
 
-    missiles.forEach(missile => {
+    // MISSILES
+    missiles.forEach(m => {
         ctx.beginPath();
-        ctx.arc(missile.x, missile.y, 3, 0, Math.PI * 2);
+        ctx.arc(m.x, m.y, 3, 0, Math.PI * 2);
         ctx.fillStyle = "red";
         ctx.fill();
     });
 
-    asteroids.forEach(asteroid => {
+    // ASTEROIDS
+    asteroids.forEach(a => {
         ctx.beginPath();
-        ctx.arc(asteroid.x, asteroid.y, asteroid.size / 2, 0, Math.PI * 2);
+        ctx.arc(a.x, a.y, a.size/2, 0, Math.PI * 2);
         ctx.fillStyle = "gray";
         ctx.fill();
     });
 
-    // Draw score
+    // SCORE
     ctx.fillStyle = "white";
     ctx.font = "20px Arial";
-    ctx.fillText("Score: " + player.score, 10, 20);
+    ctx.fillText("Score: " + player.score, 10, 25);
 }
 
+// ===== GAME LOOP =====
 function gameLoop() {
-    if (!gameOver) {
-        update();
-        draw();
-        requestAnimationFrame(gameLoop);
-    }
+    update();
+    draw();
+    requestAnimationFrame(gameLoop);
 }
 
-// Spawn asteroids at regular intervals
+function restartGame() {
+    player.x = canvas.width / 2;
+    player.y = canvas.height / 2;
+    player.score = 0;
+    player.speed = 0;
+    missiles = [];
+    asteroids = [];
+    difficulty = 1;
+    gameOver = false;
+}
+
 setInterval(() => {
     if (!gameOver) spawnAsteroid();
-}, 2000);  // Spawn every 2 seconds
+}, 1500);
 
 gameLoop();
