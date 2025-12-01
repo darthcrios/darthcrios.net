@@ -105,7 +105,7 @@ function update() {
     if (gameOver || winGame) return;
 
     // WIN CONDITION
-    if (player.score >= 250 && !winGame) {
+    if (player.score >= 100 && !winGame) {
         winGame = true;
         unlockedTrack.play();
         return;
