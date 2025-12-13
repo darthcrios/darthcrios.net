@@ -3,6 +3,7 @@ const enterBtn = document.getElementById('enter-btn');
 const preview = document.getElementById('preview');
 const main = document.getElementById('main');
 
+
 main.style.display = 'none';
 main.style.opacity = 0;
 
@@ -11,7 +12,8 @@ enterBtn.addEventListener('click', () => {
   setTimeout(() => {
     preview.style.display = 'none';
     main.style.display = 'block';
-    setTimeout(() => main.style.opacity = 1, 50);
+    setTimeout(() => main.style.opacity = 1; window.dispatchEvent(new Event("resize"));
+ 50;
   }, 800);
 });
 
