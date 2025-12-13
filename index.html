@@ -20,21 +20,24 @@
 <!-- MAIN PAGE -->
 <div id="main">
   <!-- HEADER -->
-  <header class="hero">
-    <!--<div class="overlay">
-      <p>Electronic Music | Global Community | Irish Roots</p>
-    </div>-->
-  </header>
+  <header class="hero scope-header">
+    <canvas id="scopeCanvas" aria-hidden="true"></canvas>
 
-  <!-- NAVIGATION -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="https://darthcrios.bandcamp.com/">Music Store</a></li>
-    </ul>
-  </nav>
+    <div class="scope-ui">
+      <div class="brand">
+        <span class="dot"></span>
+        <span class="name">Críos</span>
+        <span class="tag">OSC // ONLINE</span>
+      </div>
+
+      <nav class="scope-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="projects.html">Projects</a>
+        <a href="https://darthcrios.bandcamp.com/">Music Store</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- ABOUT SECTION
     <section class="about">
@@ -194,6 +197,7 @@
   </footer>
 </div>
 
+<script src="js/scope.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
