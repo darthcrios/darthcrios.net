@@ -14,7 +14,7 @@
 }
 
 /* ===================================
-   GLOBAL RESET & BODY
+   GLOBAL RESET & BODY 
 =================================== */
 * { box-sizing: border-box; }
 
@@ -220,6 +220,7 @@ html, body {
 }
 
 .navbar a:hover::after { width: 100%; }
+
 
 /* ===================================
    MAIN WRAPPER
