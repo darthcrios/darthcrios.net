@@ -12,8 +12,7 @@ enterBtn.addEventListener('click', () => {
   setTimeout(() => {
     preview.style.display = 'none';
     main.style.display = 'block';
-    setTimeout(() => main.style.opacity = 1; window.dispatchEvent(new Event("resize"));
- 50;
+    setTimeout(() => main.style.opacity = 1, 50);
   }, 800);
 });
 
