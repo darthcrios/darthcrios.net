@@ -72,46 +72,113 @@ html, body {
 }
 
 /* ===================================
-   HEADER / HERO
+   HEADER / HERO (Oscilloscope Scope)
 =================================== */
-.hero {
-  background: url('images/MusicGearHead.jpg') no-repeat center center/cover;
-    height: 70vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.hero.scope-header{
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.hero .overlay {
-    background-color: rgba(0, 0, 0, 0.6);
-    text-align: center;
-    padding: 2rem;
+#scopeCanvas{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+.scope-ui{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 18px 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  pointer-events: none; /* re-enable nav links below */
 }
 
-.hero p {
-    font-size: 1.2rem;
-    color: #ccc;
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
 }
 
-/* MOBILE RESPONSIVENESS FOR HERO */
+.brand .dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(230,255,245,0.92);
+  box-shadow: 0 0 14px rgba(230,255,245,0.16);
+}
+
+.brand .name{
+  font-family: 'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.14em;
+  color: rgba(230,255,245,0.95);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+}
+
+.brand .tag{
+  font-family: 'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: rgba(210,240,230,0.6);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.scope-nav{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding-top: 2px;
+  pointer-events: auto; /* clickable */
+}
+
+.scope-nav a{
+  font-family: 'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.14);
+  backdrop-filter: blur(6px);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease, color .12s ease;
+}
+
+.scope-nav a:hover{
+  color: #fff;
+  border-color: rgba(255,255,255,0.18);
+  box-shadow: 0 0 18px rgba(162,89,255,0.12);
+  transform: translateY(-1px);
+}
+
+/* MOBILE RESPONSIVENESS FOR SCOPE HEADER */
 @media (max-width: 768px) {
-    .hero {
-        height: 50vh;
-        background-position: center top;
-    }
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .hero p {
-        font-size: 1rem;
-    }
+  .hero.scope-header{
+    height: 290px;
+  }
+  .scope-ui{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .scope-nav{
+    justify-content: flex-start;
+  }
+  .scope-nav a{
+    font-size: 1.1rem;
+  }
 }
+
 
 /* ===================================
    NAVIGATION
