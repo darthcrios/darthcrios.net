@@ -236,6 +236,7 @@ html, body {
 #main h2 {
   margin-bottom: 24px;
   font-size: 32px;
+  text-align: Left;
 }
 
 /* ===================================
