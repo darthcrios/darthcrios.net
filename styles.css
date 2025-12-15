@@ -1,35 +1,45 @@
-/* ===================================
+/* =========================================================
    ROOT VARIABLES (DartCríos Theme)
-=================================== */
+========================================================= */
 :root {
-  --bg: #0B0B0C;          /* deep black */
+  --bg: #0b0b0c;          /* deep black */
   --text: #e60000;        /* neon red */
   --accent: #a259ff;      /* neon purple accent */
 
   --track-bg: #101013;
-  --track-hover: #1A1A1A;
+  --track-hover: #1a1a1a;
 
   --wave-bg: #333;
   --wave-accent: #a259ff;
+
+  --maxw: 1100px;         /* added (was referenced, not defined) */
 }
 
-/* ===================================
-   GLOBAL RESET & BODY
-=================================== */
-* { box-sizing: border-box; }
+/* =========================================================
+   GLOBAL RESET & BASE
+========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: 'Share Tech Mono', monospace;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   background: var(--bg);
   color: var(--text);
 }
 
-/* ===================================
+/* =========================================================
    PREVIEW SCREEN
-=================================== */
+========================================================= */
 #preview {
   position: fixed;
   inset: 0;
@@ -46,12 +56,12 @@ html, body {
 #preview h1 {
   font-size: 48px;
   letter-spacing: 2px;
-  margin-bottom: 16px;
+  margin: 0 0 16px;
 }
 
 #preview p {
   font-size: 18px;
-  margin-bottom: 32px;
+  margin: 0 0 32px;
   color: #aaa;
 }
 
@@ -63,7 +73,7 @@ html, body {
   background: transparent;
   border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 #enter-btn:hover {
@@ -71,18 +81,18 @@ html, body {
   color: var(--bg);
 }
 
-/* ===================================
+/* =========================================================
    HEADER / HERO (Oscilloscope Scope)
-=================================== */
-.hero.scope-header{
+========================================================= */
+.hero.scope-header {
   position: relative;
   height: 240px;
   overflow: hidden;
   background: var(--bg);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-#scopeCanvas{
+#scopeCanvas {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -90,7 +100,7 @@ html, body {
   display: block;
 }
 
-.scope-ui{
+.scope-ui {
   position: relative;
   z-index: 2;
   height: 100%;
@@ -102,37 +112,35 @@ html, body {
   pointer-events: none; /* re-enable nav links below */
 }
 
-.brand{
+.brand {
   display: flex;
   align-items: center;
   gap: 10px;
   user-select: none;
 }
 
-.brand .dot{
+.brand .dot {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: rgba(230,255,245,0.92);
-  box-shadow: 0 0 14px rgba(230,255,245,0.16);
+  background: rgba(230, 255, 245, 0.92);
+  box-shadow: 0 0 14px rgba(230, 255, 245, 0.16);
 }
 
-.brand .name{
-  font-family: 'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+.brand .name {
   letter-spacing: 0.14em;
-  color: rgba(230,255,245,0.95);
+  color: rgba(230, 255, 245, 0.95);
   font-size: 1.05rem;
   text-transform: uppercase;
 }
 
-.brand .tag{
-  font-family: 'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  color: rgba(210,240,230,0.6);
+.brand .tag {
+  color: rgba(210, 240, 230, 0.6);
   font-size: 0.85rem;
   letter-spacing: 0.08em;
 }
 
-.scope-nav{
+.scope-nav {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
@@ -141,48 +149,49 @@ html, body {
   pointer-events: auto; /* clickable */
 }
 
-.scope-nav a{
-  font-family: 'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+.scope-nav a {
   font-size: 1.25rem;
   letter-spacing: 0.06em;
   color: var(--text);
   text-decoration: none;
   padding: 6px 10px;
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(0,0,0,0.14);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.14);
   backdrop-filter: blur(6px);
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease, color .12s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease, color 0.12s ease;
 }
 
-.scope-nav a:hover{
+.scope-nav a:hover {
   color: #fff;
-  border-color: rgba(255,255,255,0.18);
-  box-shadow: 0 0 18px rgba(162,89,255,0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 18px rgba(162, 89, 255, 0.12);
   transform: translateY(-1px);
 }
 
-/* MOBILE RESPONSIVENESS FOR SCOPE HEADER */
+/* Mobile responsiveness for scope header */
 @media (max-width: 768px) {
-  .hero.scope-header{
+  .hero.scope-header {
     height: 290px;
   }
-  .scope-ui{
+
+  .scope-ui {
     flex-direction: column;
     align-items: flex-start;
   }
-  .scope-nav{
+
+  .scope-nav {
     justify-content: flex-start;
   }
-  .scope-nav a{
+
+  .scope-nav a {
     font-size: 1.1rem;
   }
 }
 
-
-/* ===================================
-   NAVIGATION
-=================================== */
+/* =========================================================
+   NAVIGATION (classic navbar section)
+========================================================= */
 .navbar {
   background-color: #000;
   text-align: center;
@@ -201,11 +210,11 @@ html, body {
 }
 
 .navbar a {
-  font-weight: bold;
+  font-weight: 700;
   color: var(--text);
   text-decoration: none;
   position: relative;
-  font-size: 2.2rem; /* adjustable font size without h3 */
+  font-size: 2.2rem;
 }
 
 .navbar a::after {
@@ -219,11 +228,13 @@ html, body {
   transition: width 0.3s ease;
 }
 
-.navbar a:hover::after { width: 100%; }
+.navbar a:hover::after {
+  width: 100%;
+}
 
-/* ===================================
+/* =========================================================
    MAIN WRAPPER
-=================================== */
+========================================================= */
 #main {
   display: none;
   opacity: 0;
@@ -234,14 +245,14 @@ html, body {
 }
 
 #main h2 {
-  margin-bottom: 24px;
+  margin: 0 0 24px;
   font-size: 32px;
-  text-align: Left;
+  text-align: left;
 }
 
-/* ===================================
+/* =========================================================
    TRACK GRID
-=================================== */
+========================================================= */
 .tracks {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -256,7 +267,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .track:hover {
@@ -277,29 +288,6 @@ html, body {
   color: var(--text);
 }
 
-/*.track-wave {
-  width: 100%;
-  height: 40px;
-  margin-bottom: 8px;
-  border-radius: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--wave-bg) 10%,
-    var(--wave-accent) 20%,
-    var(--wave-bg) 30%,
-    var(--wave-bg) 40%,
-    var(--wave-accent) 50%,
-    var(--wave-bg) 60%
-  );
-  background-size: 200% 100%;
-  animation: waveMove 1.5s linear infinite;
-}
-
-@keyframes waveMove {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-} */
-
 .track audio {
   width: 100%;
   margin-top: 8px;
@@ -318,7 +306,7 @@ html, body {
   margin-top: 8px;
   padding: 6px 12px;
   background: #222;
-  color: white;
+  color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 4px;
@@ -328,26 +316,25 @@ html, body {
   background: #444;
 }
 
-
-/* ===================================
+/* =========================================================
    BLOG SECTION
-=================================== */
+========================================================= */
 .blog {
   padding: 3rem 1rem;
   text-align: center;
 }
 
 .blog h2 {
-    font-size: 2rem;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-    color: #e60000;
+  font-size: 2rem;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.5rem;
+  margin: 0 0 2rem;
+  color: var(--text);
 }
 
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -359,42 +346,40 @@ html, body {
   color: #ccc;
 }
 
-/* ===============================
-   Video Section (matches blog layout)
-=============================== */
-
+/* =========================================================
+   VIDEO SECTION (matches blog layout)
+========================================================= */
 .videos {
-    padding: 3rem 1rem;
-    text-align: Left;
+  padding: 3rem 1rem;
+  text-align: left;
 }
 
 .videos h2 {
-    font-size: 2rem;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-    color: #e60000;
+  font-size: 2rem;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.5rem;
+  margin: 0 0 2rem;
+  color: var(--text);
 }
 
 .video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .video-item iframe {
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
-    border: 1px solid var(--accent);
-    box-shadow: 0 0 10px #a259ff22;
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 10px #a259ff22;
 }
 
-
-/* ===================================
+/* =========================================================
    LINKS (Social + Blog Links)
-=================================== */
+========================================================= */
 .links {
   display: flex;
   gap: 16px;
@@ -406,14 +391,16 @@ html, body {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
-.links a:hover { color: #fff; }
+.links a:hover {
+  color: #fff;
+}
 
-/* ===================================
-   Radio
-   =================================== */
+/* =========================================================
+   RADIO
+========================================================= */
 .radio {
   text-align: center;
   background-color: #111;
@@ -426,7 +413,7 @@ html, body {
 }
 
 .radio h2 {
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
   font-size: 1.5rem;
 }
 
@@ -450,8 +437,8 @@ html, body {
 }
 
 #currentSong {
-  font-weight: bold;
-  color: #EB6123;
+  font-weight: 700;
+  color: #eb6123;
   transition: opacity 0.3s ease;
 }
 
@@ -460,6 +447,7 @@ html, body {
   opacity: 0.8;
 }
 
+/* Note: this targets ALL audio tags site-wide */
 audio {
   width: 100%;
   border-radius: 6px;
@@ -467,9 +455,9 @@ audio {
   margin-top: 1rem;
 }
 
-/* ===================================
+/* =========================================================
    FOOTER
-=================================== */
+========================================================= */
 footer {
   text-align: center;
   padding: 2rem;
@@ -481,7 +469,7 @@ footer {
 footer .socials a {
   margin: 0 8px;
   color: var(--text);
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 footer .socials a:hover {
