@@ -1,5 +1,10 @@
 /* ==================================================
-   ROOT VARIABLES (Críos Theme)
+   GLOBAL THEME + BLOG STYLES (Merged)
+   Source: styles.css + blogstyle.cleaned.css
+================================================== */
+
+/* ==================================================
+   ROOT VARIABLES
 ================================================== */
 :root {
   --bg: #0b0b0c;
@@ -40,319 +45,115 @@ img {
 }
 
 /* ==================================================
-   PREVIEW SCREEN
+   BLOG PAGE LAYOUT
 ================================================== */
-#preview {
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  background: var(--bg);
-  transition: opacity 0.8s ease;
+.blog-header,
+.blog-post,
+.back-link {
+  max-width: var(--maxw);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#preview h1 {
-  font-size: 3rem;
-  letter-spacing: 0.15em;
-  margin-bottom: 1rem;
-}
-
-#preview p {
-  font-size: 1.125rem;
-  margin-bottom: 2rem;
-  color: #aaa;
-}
-
-#enter-btn {
-  padding: 0.9rem 1.75rem;
-  font-size: 1rem;
-  background: transparent;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: 0.75rem;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-#enter-btn:hover {
-  background: var(--accent);
-  color: var(--bg);
+.blog-header {
+  padding: 0 1.5rem 0.5rem;
+  margin: 2rem auto 1.5rem;
+  font-size: 2rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--accent);
 }
 
 /* ==================================================
-   HERO / SCOPE HEADER
+   BLOG POSTS
 ================================================== */
-.hero.scope-header {
-  position: relative;
-  height: 240px;
-  overflow: hidden;
-  background: var(--bg);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+.blog-post {
+  background: #222;
+  color: #ccc;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 10px rgba(162, 89, 255, 0.13);
+  padding: 2rem;
+  margin: 0 auto 1.5rem;
 }
 
-#scopeCanvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.scope-ui {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-
-  padding: 1.25rem 1.5rem;
-  pointer-events: none;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  user-select: none;
-}
-
-.brand .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(230, 255, 245, 0.9);
-  box-shadow: 0 0 14px rgba(230, 255, 245, 0.15);
-}
-
-.brand .name {
-  letter-spacing: 0.14em;
-  font-size: 1.05rem;
-  text-transform: uppercase;
-  color: rgba(230, 255, 245, 0.95);
-}
-
-.brand .tag {
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  color: rgba(210, 240, 230, 0.6);
-}
-
-.scope-nav {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  pointer-events: auto;
-}
-
-.scope-nav a {
-  font-size: 1.15rem;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-
+.blog-post h2 {
+  margin: 0 0 0.75rem;
   color: var(--text);
-  background: rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.6rem;
-
-  padding: 0.4rem 0.7rem;
-
-  backdrop-filter: blur(6px);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease, color 0.12s ease;
 }
 
-.scope-nav a:hover {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 18px rgba(162, 89, 255, 0.12);
+.blog-post .date {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.blog-post p {
+  margin: 0 0 1rem;
+  line-height: 1.65;
+}
+
+.blog-post p:last-child {
+  margin-bottom: 0;
+}
+
+/* Media inside blog posts */
+.blog-post img {
+  border-radius: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.blog-post iframe {
+  width: 100%;
+  display: block;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(162, 89, 255, 0.6);
+  box-shadow: 0 0 10px rgba(162, 89, 255, 0.15);
+  aspect-ratio: 16 / 9;
+  height: clamp(200px, 30vw, 315px);
+  margin-top: 1rem;
+}
+
+/* ==================================================
+   BLOG LINKS
+================================================== */
+.blog-post a {
+  color: #39ff14;
+  text-decoration: none;
+}
+
+.blog-post a:hover {
+  text-decoration: underline;
+}
+
+/* ==================================================
+   BACK LINK
+================================================== */
+.back-link {
+  display: inline-block;
+  margin: 1.5rem auto 2.5rem;
+  padding: 0.6rem 1.1rem;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.back-link:hover {
+  background: var(--accent);
+  color: #0a0a0a;
   transform: translateY(-1px);
 }
 
+/* ==================================================
+   RESPONSIVE
+================================================== */
 @media (max-width: 768px) {
-  .hero.scope-header { height: 290px; }
-  .scope-ui { flex-direction: column; align-items: flex-start; }
-  .scope-nav { justify-content: flex-start; }
+  .blog-header {
+    font-size: 1.6rem;
+  }
+
+  .blog-post {
+    padding: 1.5rem 1.25rem;
+  }
 }
 
-/* ==================================================
-   MAIN WRAPPER
-================================================== */
-#main {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem;
-}
-
-#main h2 {
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-}
-
-/* ==================================================
-   TRACK GRID
-================================================== */
-.tracks {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.25rem;
-}
-
-.track {
-  background: var(--track-bg);
-  border-radius: 0.75rem;
-  padding: 0.75rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.track:hover {
-  background: var(--track-hover);
-  transform: translateY(-4px);
-}
-
-.track-title {
-  margin: 0.5rem 0;
-  font-weight: 600;
-  text-align: center;
-}
-
-.track audio {
-  width: 100%;
-  margin-top: 0.5rem;
-  border-radius: 0.4rem;
-  background: #111;
-}
-
-.hidden-audio {
-  width: 0;
-  height: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* ==================================================
-   BLOG / VIDEO SECTIONS
-================================================== */
-.blog,
-.videos {
-  padding: 3rem 1rem;
-}
-
-.blog h2,
-.videos h2 {
-  font-size: 2rem;
-  border-bottom: 1px solid var(--accent);
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.blog-grid,
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.blog-post {
-  background: #222;
-  padding: 2rem;
-  border-radius: 0.75rem;
-  color: #ccc;
-}
-
-.video-item iframe {
-  width: 100%;
-  height: 200px;
-  border-radius: 0.75rem;
-  border: 1px solid var(--accent);
-  box-shadow: 0 0 10px rgba(162, 89, 255, 0.15);
-}
-
-/* ==================================================
-   LINKS
-================================================== */
-.links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.links a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.links a:hover { color: #fff; }
-
-/* ==================================================
-   RADIO PLAYER
-================================================== */
-.radio {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 2rem 1rem;
-
-  background: #111;
-  color: #eee;
-  border-radius: 0.75rem;
-  text-align: center;
-
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.artwork-wrapper img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 0.75rem;
-}
-
-#currentSong {
-  font-weight: bold;
-  color: #eb6123;
-}
-
-audio {
-  width: 100%;
-  margin-top: 1rem;
-  border-radius: 0.5rem;
-}
-
-/* ==================================================
-   FOOTER
-================================================== */
-footer {
-  padding: 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #888;
-  background: #000;
-}
-
-footer .socials a {
-  margin: 0 0.5rem;
-  color: var(--text);
-}
-
-footer .socials a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
