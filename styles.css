@@ -11,8 +11,8 @@
 
   --wave-bg: #333;
   --wave-accent: #a259ff;
+  --maxw: 1100px; /* added (was referenced, not defined) */
 }
-
 /* ===================================
    GLOBAL RESET & BODY
 =================================== */
