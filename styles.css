@@ -1,69 +1,83 @@
-/* ===================================
-   ROOT VARIABLES (DartCríos Theme)
-=================================== */
+/* ==================================================
+   ROOT VARIABLES (Críos Theme)
+================================================== */
 :root {
-  --bg: #0B0B0C;          /* deep black */
-  --text: #e60000;        /* neon red */
-  --accent: #a259ff;      /* neon purple accent */
+  --bg: #0b0b0c;
+  --text: #e60000;
+  --accent: #a259ff;
 
   --track-bg: #101013;
-  --track-hover: #1A1A1A;
+  --track-hover: #1a1a1a;
 
   --wave-bg: #333;
   --wave-accent: #a259ff;
+
+  --maxw: 1200px;
 }
 
-/* ===================================
-   GLOBAL RESET & BODY
-=================================== */
-* { box-sizing: border-box; }
+/* ==================================================
+   GLOBAL RESET
+================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100%;
   font-family: 'Share Tech Mono', monospace;
   background: var(--bg);
   color: var(--text);
 }
 
-/* ===================================
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ==================================================
    PREVIEW SCREEN
-=================================== */
+================================================== */
 #preview {
   position: fixed;
   inset: 0;
+  z-index: 10;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--bg);
   text-align: center;
+
+  background: var(--bg);
   transition: opacity 0.8s ease;
-  z-index: 10;
 }
 
 #preview h1 {
-  font-size: 48px;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
+  font-size: 3rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
 }
 
 #preview p {
-  font-size: 18px;
-  margin-bottom: 32px;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
   color: #aaa;
 }
 
 #enter-btn {
-  padding: 14px 28px;
-  font-size: 16px;
-  border: 1px solid var(--accent);
-  color: var(--accent);
+  padding: 0.9rem 1.75rem;
+  font-size: 1rem;
   background: transparent;
-  border-radius: 12px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 0.75rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 #enter-btn:hover {
@@ -71,153 +85,140 @@ html, body {
   color: var(--bg);
 }
 
-/* ===================================
-   HEADER / HERO (Oscilloscope Scope)
-=================================== */
-.hero.scope-header{
+/* ==================================================
+   HERO / SCOPE HEADER
+================================================== */
+.hero.scope-header {
   position: relative;
   height: 240px;
   overflow: hidden;
   background: var(--bg);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-#scopeCanvas{
+#scopeCanvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  display: block;
 }
 
-.scope-ui{
+.scope-ui {
   position: relative;
   z-index: 2;
   height: 100%;
-  padding: 18px 22px;
+
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
-  gap: 18px;
-  pointer-events: none; /* re-enable nav links below */
+  gap: 1rem;
+
+  padding: 1.25rem 1.5rem;
+  pointer-events: none;
 }
 
-.brand{
+.brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.6rem;
   user-select: none;
 }
 
-.brand .dot{
+.brand .dot {
   width: 10px;
   height: 10px;
-  border-radius: 999px;
-  background: rgba(230,255,245,0.92);
-  box-shadow: 0 0 14px rgba(230,255,245,0.16);
+  border-radius: 50%;
+  background: rgba(230, 255, 245, 0.9);
+  box-shadow: 0 0 14px rgba(230, 255, 245, 0.15);
 }
 
-.brand .name{
-  font-family: 'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+.brand .name {
   letter-spacing: 0.14em;
-  color: rgba(230,255,245,0.95);
   font-size: 1.05rem;
   text-transform: uppercase;
+  color: rgba(230, 255, 245, 0.95);
 }
 
-.brand .tag{
-  font-family: 'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  color: rgba(210,240,230,0.6);
+.brand .tag {
   font-size: 0.85rem;
   letter-spacing: 0.08em;
+  color: rgba(210, 240, 230, 0.6);
 }
 
-.scope-nav{
+.scope-nav {
   display: flex;
-  gap: 14px;
+  gap: 0.75rem;
   flex-wrap: wrap;
   justify-content: flex-end;
-  padding-top: 2px;
-  pointer-events: auto; /* clickable */
+  pointer-events: auto;
 }
 
-.scope-nav a{
-  font-family: 'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 1.25rem;
+.scope-nav a {
+  font-size: 1.15rem;
   letter-spacing: 0.06em;
-  color: var(--text);
   text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(0,0,0,0.14);
+
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.6rem;
+
+  padding: 0.4rem 0.7rem;
+
   backdrop-filter: blur(6px);
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease, color .12s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease, color 0.12s ease;
 }
 
-.scope-nav a:hover{
+.scope-nav a:hover {
   color: #fff;
-  border-color: rgba(255,255,255,0.18);
-  box-shadow: 0 0 18px rgba(162,89,255,0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 18px rgba(162, 89, 255, 0.12);
   transform: translateY(-1px);
 }
 
-/* MOBILE RESPONSIVENESS FOR SCOPE HEADER */
 @media (max-width: 768px) {
-  .hero.scope-header{
-    height: 290px;
-  }
-  .scope-ui{
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .scope-nav{
-    justify-content: flex-start;
-  }
-  .scope-nav a{
-    font-size: 1.1rem;
-  }
+  .hero.scope-header { height: 290px; }
+  .scope-ui { flex-direction: column; align-items: flex-start; }
+  .scope-nav { justify-content: flex-start; }
 }
 
-
-
-
-/* ===================================
+/* ==================================================
    MAIN WRAPPER
-=================================== */
+================================================== */
 #main {
   display: none;
   opacity: 0;
   transition: opacity 0.8s ease;
-  padding: 40px 24px;
+
   max-width: var(--maxw);
   margin: 0 auto;
+  padding: 2.5rem 1.5rem;
 }
 
 #main h2 {
-  margin-bottom: 24px;
-  font-size: 32px;
-  text-align: Left;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
 }
 
-/* ===================================
+/* ==================================================
    TRACK GRID
-=================================== */
+================================================== */
 .tracks {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .track {
   background: var(--track-bg);
-  padding: 12px;
-  border-radius: 12px;
-  cursor: pointer;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: background 0.3s, transform 0.3s;
+
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .track:hover {
@@ -225,23 +226,16 @@ html, body {
   transform: translateY(-4px);
 }
 
-.track img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 8px;
-}
-
 .track-title {
+  margin: 0.5rem 0;
   font-weight: 600;
-  margin-bottom: 8px;
   text-align: center;
-  color: var(--text);
 }
 
 .track audio {
   width: 100%;
-  margin-top: 8px;
-  border-radius: 4px;
+  margin-top: 0.5rem;
+  border-radius: 0.4rem;
   background: #111;
 }
 
@@ -252,174 +246,110 @@ html, body {
   pointer-events: none;
 }
 
-.player-controls button {
-  margin-top: 8px;
-  padding: 6px 12px;
-  background: #222;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.player-controls button:hover {
-  background: #444;
-}
-
-
-/* ===================================
-   BLOG SECTION
-=================================== */
-.blog {
+/* ==================================================
+   BLOG / VIDEO SECTIONS
+================================================== */
+.blog,
+.videos {
   padding: 3rem 1rem;
-  text-align: center;
 }
 
-.blog h2 {
-    font-size: 2rem;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-    color: #e60000;
+.blog h2,
+.videos h2 {
+  font-size: 2rem;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
 
-.blog-grid {
+.blog-grid,
+.video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
 }
 
 .blog-post {
   background: #222;
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 0.75rem;
   color: #ccc;
 }
 
-/* ===============================
-   Video Section (matches blog layout)
-=============================== */
-
-.videos {
-    padding: 3rem 1rem;
-    text-align: Left;
-}
-
-.videos h2 {
-    font-size: 2rem;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
-    color: #e60000;
-}
-
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
 .video-item iframe {
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
-    border: 1px solid var(--accent);
-    box-shadow: 0 0 10px #a259ff22;
+  width: 100%;
+  height: 200px;
+  border-radius: 0.75rem;
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 10px rgba(162, 89, 255, 0.15);
 }
 
-
-/* ===================================
-   LINKS (Social + Blog Links)
-=================================== */
+/* ==================================================
+   LINKS
+================================================== */
 .links {
   display: flex;
-  gap: 16px;
-  margin-top: 32px;
   justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .links a {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s;
 }
 
 .links a:hover { color: #fff; }
 
-/* ===================================
-   Radio
-   =================================== */
+/* ==================================================
+   RADIO PLAYER
+================================================== */
 .radio {
-  text-align: center;
-  background-color: #111;
-  color: #eee;
-  padding: 2rem 1rem;
-  border-radius: 8px;
   max-width: 500px;
   margin: 2rem auto;
+  padding: 2rem 1rem;
+
+  background: #111;
+  color: #eee;
+  border-radius: 0.75rem;
+  text-align: center;
+
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.radio h2 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-.artwork-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
 }
 
 .artwork-wrapper img {
   width: 200px;
   height: 200px;
-  border-radius: 10px;
   object-fit: cover;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-}
-
-.audio-player p {
-  margin: 0.5rem 0;
-  font-size: 1.1rem;
+  border-radius: 0.75rem;
 }
 
 #currentSong {
   font-weight: bold;
-  color: #EB6123;
-  transition: opacity 0.3s ease;
-}
-
-.listeners {
-  font-size: 0.95rem;
-  opacity: 0.8;
+  color: #eb6123;
 }
 
 audio {
   width: 100%;
-  border-radius: 6px;
-  outline: none;
   margin-top: 1rem;
+  border-radius: 0.5rem;
 }
 
-/* ===================================
+/* ==================================================
    FOOTER
-=================================== */
+================================================== */
 footer {
-  text-align: center;
   padding: 2rem;
-  background-color: #000;
-  color: #888;
+  text-align: center;
   font-size: 0.9rem;
+  color: #888;
+  background: #000;
 }
 
 footer .socials a {
-  margin: 0 8px;
+  margin: 0 0.5rem;
   color: var(--text);
-  transition: color 0.3s;
 }
 
 footer .socials a:hover {
