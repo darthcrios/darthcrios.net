@@ -264,6 +264,7 @@ function draw() {
     // LIVES
     ctx.font = "20px Arial";
     ctx.fillText("Lives: " + "❤".repeat(player.lives), canvas.width - 10, 25);
+    ctx.textAlign = "left"; 
 ;
 }
 
