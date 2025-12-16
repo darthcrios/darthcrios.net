@@ -188,48 +188,6 @@ body {
   }
 }
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
-.navbar {
-  background-color: #000;
-  text-align: center;
-  padding: 1rem 0;
-}
-
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar li {
-  display: inline-block;
-  margin: 0 15px;
-}
-
-.navbar a {
-  font-weight: 700;
-  color: var(--text);
-  text-decoration: none;
-  position: relative;
-  font-size: 2.2rem;
-}
-
-.navbar a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0%;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.3s ease;
-}
-
-.navbar a:hover::after {
-  width: 100%;
-}
 
 /* =========================================================
    MAIN WRAPPER
