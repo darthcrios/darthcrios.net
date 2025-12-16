@@ -30,7 +30,10 @@
 *{box-sizing:border-box}
 body{
   margin:0;
-  background: radial-gradient(circle at 40% 0%, #2b0b55 0%, #0b0f16 55%, #05060c 100%);
+  background:
+    radial-gradient(circle at 30% 10%, rgba(162,89,255,.15), transparent 45%),
+    radial-gradient(circle at 70% 90%, rgba(54,209,107,.08), transparent 50%),
+    linear-gradient(180deg, #05060c, #0b0d1a 60%, #04050a);
   font-family: Tahoma, Verdana, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   color:var(--text);
   display:flex;
@@ -38,6 +41,7 @@ body{
   align-items:center;
   justify-content:center;
 }
+
 
 
 .app{
