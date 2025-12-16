@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Críos Media Player</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <div class="title-left">
+        <span class="app-icon"></span>
+        <span class="title-text">Críos Media Player</span>
+      </div>
+      <div class="title-right">
+        <button class="win-btn" title="Minimize">—</button>
+        <button class="win-btn" title="Maximize">▢</button>
+        <button class="win-btn close" title="Close">✕</button>
+      </div>
+    </div>
+
+    <div class="menubar">
+      <span>File</span><span>View</span><span>Play</span><span>Tools</span><span>Help</span>
+    </div>
+
+    <div class="main">
+      <div class="left">
+        <div class="nowplaying">
+          <div class="cover-wrap">
+            <img id="cover" alt="Album art" />
+            <div class="gloss"></div>
+          </div>
+
+          <div class="meta">
+            <div id="trackTitle" class="track-title">—</div>
+            <div id="trackArtist" class="track-artist">—</div>
+          </div>
+
+          <div class="viz">
+            <canvas id="vizCanvas" width="310" height="62"></canvas>
+          </div>
+        </div>
+
+        <div class="transport">
+          <div class="time-row">
+            <span id="timeCur" class="time">0:00</span>
+            <div class="seek-wrap">
+              <input id="seek" type="range" min="0" max="1000" value="0" />
+            </div>
+            <span id="timeDur" class="time">0:00</span>
+          </div>
+
+          <div class="btn-row">
+            <button id="btnPrev" class="ctrl" title="Previous">⏮</button>
+            <button id="btnPlay" class="ctrl big" title="Play/Pause">▶</button>
+            <button id="btnNext" class="ctrl" title="Next">⏭</button>
+
+            <div class="spacer"></div>
+
+            <button id="btnShuffle" class="pill" title="Shuffle">Shuffle</button>
+            <button id="btnRepeat" class="pill" title="Repeat">Repeat</button>
+
+            <div class="vol">
+              <span class="vol-ico">🔊</span>
+              <input id="vol" type="range" min="0" max="1" step="0.01" value="0.85" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="panel-head">
+          <span>Playlist</span>
+          <button id="btnAddMock" class="small">+ Demo</button>
+        </div>
+
+        <div id="playlist" class="playlist"></div>
+      </div>
+    </div>
+
+    <div class="statusbar">
+      <span id="statusText">Ready.</span>
+      <span class="status-right">XP Mode</span>
+    </div>
+  </div>
+
+  <audio id="audio" preload="metadata"></audio>
+
+  <script src="player.js"></script>
+</body>
+</html>
