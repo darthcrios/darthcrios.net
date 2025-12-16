@@ -1,19 +1,27 @@
 :root{
-  /* Críos / Clovermind palette */
-  --xp-blue1:#2a0b4e;     /* deep purple */
-  --xp-blue2:#5b1fbf;     /* bright purple */
-  --xp-blue3:#0b0f16;     /* near-black */
+  /* ================================
+     CLOVERMIND MUSIC – PLAYER THEME
+     ================================ */
 
-  --chrome:#141826;       /* dark chrome */
-  --chrome2:#0f1320;
-  --border:#4b2a7a;
-  --shadow: rgba(0,0,0,.40);
+  /* Core surfaces */
+  --xp-blue1:#0e1020;     /* title bar base */
+  --xp-blue2:#1a1d3a;     /* title bar gradient */
+  --xp-blue3:#070812;     /* deepest shadow */
 
-  --text:#e9e9ff;
-  --panel:#12172a;
-  --panel2:#0d1222;
+  --chrome:#14162a;       /* chrome panels */
+  --chrome2:#0f1122;
+  --panel:#0e1020;
+  --panel2:#0a0c18;
 
-  --accent:#a259ff;       /* your purple accent */
+  /* Borders & shadows */
+  --border:#2c2f55;
+  --shadow: rgba(0,0,0,.55);
+
+  /* Text */
+  --text:#e7e9ff;
+
+  /* Brand accents */
+  --accent:#a259ff;      /* Clovermind purple */
   --green:#36d16b;
   --red:#ff4a4a;
 }
