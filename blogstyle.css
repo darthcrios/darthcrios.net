@@ -299,7 +299,7 @@ a {
 
 /* =========================================================
    RADIO
-========================================================= */
+========================================================= 
 .radio {
   text-align: center;
   background-color: #111;
@@ -346,13 +346,13 @@ a {
   opacity: 0.8;
 }
 
-/* Note: targets ALL audio tags site-wide */
+/* Note: targets ALL audio tags site-wide 
 audio {
   width: 100%;
   border-radius: 6px;
   outline: none;
   margin-top: 1rem;
-}
+} */
 
 /* =========================================================
    FOOTER
