@@ -23,7 +23,7 @@ const timeDur = document.getElementById("timeDur");
 // ---- Edit this list to your real tracks ----
 let tracks = [
   { title: "Ghost on the Beach", artist: "Críos", src: "audio/GhostontheBeach.mp3", art: "art/Beach Ghost.jpeg" },
-  { title: "Track 02", artist: "Críos", src: "audio/track2.mp3", art: "art/cover2.jpg" }
+  { title: "Isolated Red", artist: "Críos", src: "audio/IsolatedRed.mp3", art: "art/red_isloated.jpg" }
 ];
 
 // Player state
