@@ -1,18 +1,23 @@
 :root{
-  --xp-blue1:#1f5fbf;
-  --xp-blue2:#3a7bdc;
-  --xp-blue3:#0b2f6b;
-  --chrome:#d6dff1;
-  --chrome2:#bfcbe5;
-  --border:#6b84b6;
-  --shadow: rgba(0,0,0,.25);
-  --text:#0b0f16;
-  --panel:#eef3ff;
-  --panel2:#dfe9ff;
-  --accent:#32c7ff;
+  /* Críos / Clovermind palette */
+  --xp-blue1:#2a0b4e;     /* deep purple */
+  --xp-blue2:#5b1fbf;     /* bright purple */
+  --xp-blue3:#0b0f16;     /* near-black */
+
+  --chrome:#141826;       /* dark chrome */
+  --chrome2:#0f1320;
+  --border:#4b2a7a;
+  --shadow: rgba(0,0,0,.40);
+
+  --text:#e9e9ff;
+  --panel:#12172a;
+  --panel2:#0d1222;
+
+  --accent:#a259ff;       /* your purple accent */
   --green:#36d16b;
   --red:#ff4a4a;
 }
+
 
 *{box-sizing:border-box}
 body{
