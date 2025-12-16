@@ -22,7 +22,7 @@
 *{box-sizing:border-box}
 body{
   margin:0;
-  background: radial-gradient(circle at 40% 0%, #2b6fd6 0%, #0b2f6b 55%, #061a3f 100%);
+  background: radial-gradient(circle at 40% 0%, #2b0b55 0%, #0b0f16 55%, #05060c 100%);
   font-family: Tahoma, Verdana, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   color:var(--text);
   display:flex;
@@ -30,6 +30,7 @@ body{
   align-items:center;
   justify-content:center;
 }
+
 
 .app{
   width:min(980px, 96vw);
