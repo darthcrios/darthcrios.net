@@ -322,3 +322,48 @@ input[type="range"]{
   border-top:1px solid rgba(0,0,0,.12);
 }
 .status-right{opacity:.8}
+
+/* ===== Clovermind polish ===== */
+
+.title-text{
+  letter-spacing:.4px;
+  font-weight:800;
+}
+
+.ctrl,
+.pill,
+.small,
+.win-btn{
+  background: linear-gradient(180deg, #1c1f3d, #12152a);
+  color: #e9e9ff;
+  border-color: #2c2f55;
+}
+
+.ctrl:hover,
+.pill:hover,
+.small:hover{
+  box-shadow: 0 0 0 2px rgba(162,89,255,.25) inset;
+}
+
+.pill.on{
+  background: linear-gradient(180deg, #2a1b4e, #1a1235);
+  color:#e9d8ff;
+}
+
+.item{
+  background: rgba(20,22,42,.85);
+}
+
+.item:hover{
+  background: rgba(28,32,68,.95);
+}
+
+.item.active{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(162,89,255,.35) inset;
+}
+
+.badge{
+  background: linear-gradient(180deg, #0b0f26, #07081a);
+  color:#c9b6ff;
+}
