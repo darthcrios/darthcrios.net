@@ -30,47 +30,56 @@ const tracksData = [
   {
     title: "Vibe With Me",
     albumArt: "AlbumArt/VWH4.jpg",
-    audio: "Masters/VibeWithMe.mp3"
+    audio: "Masters/VibeWithMe.mp3",
+    buyLink: "https://darthcrios.bandcamp.com/track/vibe-with-me"
   },
   {
     title: "Kollective - Riverbend Remix",
     albumArt: "AlbumArt/SinglesRemix.jpg",
-    audio: "Masters/Riverbend.mp3"
+    audio: "Masters/Riverbend.mp3",
+    buyLink: "https://darthcrios.bandcamp.com/track/kollective-riverbend-ramparts-remix"
   },
   {
     title: "Keep Moving",
     albumArt: "AlbumArt/Keep Moving.jpg",
-    audio: "Masters/KeepMoving.mp3"
+    audio: "Masters/KeepMoving.mp3",
+    buyLink: "https://darthcrios.bandcamp.com/track/keep-moving"
   },
   {
     title: "You Got the Feeling Ft Alan Martin",
     albumArt: "AlbumArt/SinglesCover.jpg",
-    audio: "Masters/YouGotTheFeeling.mp3"
+    audio: "Masters/YouGotTheFeeling.mp3",
+    buyLink: "https://darthcrios.bandcamp.com/track/you-got-the-feeling"
   },
   {
     title: "Killer Vibes",
     albumArt: "AlbumArt/KillerVibesArt.jpg",
-    audio: "Masters/KillerVibes.mp3"
+    audio: "Masters/KillerVibes.mp3",
+    buyLink: "https://darthcrios.bandcamp.com/track/killer-vibes-bandcamp-exclusive"
   },
   {
     title: "LA Rain",
     albumArt: "AlbumArt/LA Rain.jpg",
-    audio: "Masters/LARain.mp3"
+    audio: "Masters/LARain.mp3",
+    buyLink: "https://darthcrios.bandcamp.com/track/la-rain"
   },
   {
     title: "Isolated Red",
     albumArt: "AlbumArt/red_isolated.jpg",
-    audio: "Masters/IsolatedRed.mp3"
+    audio: "Masters/IsolatedRed.mp3",
+    buyLink: "https://darthcrios.bandcamp.com/track/isolated-red"
   },
   {
     title: "Puca",
     albumArt: "AlbumArt/Beach Ghost.jpeg",
-    audio: "Masters/GhostontheBeach.mp3"
+    audio: "Masters/GhostontheBeach.mp3",
+    buyLink: "https://darthcrios.bandcamp.com/track/puc-ar-an-tr"
   },
   {
     title: "Move Yo Body Ft Alex Arcana",
     albumArt: "AlbumArt/movyobody2.jpg",
-    audio: "Masters/MoveyoBody.mp3"
+    audio: "Masters/MoveyoBody.mp3",
+    buyLink: "https://darthcrios.bandcamp.com/track/moveyobody"
   },
 
 ];
@@ -98,6 +107,7 @@ tracksData.forEach(track => {
     <div class="player-controls">
       <button class="play-btn">▶️ Play</button>
       <button class="pause-btn">⏸️ Pause</button>
+    <a href="${track.buyLink}" target="_blank" class="buy-btn">💰 Buy</a>
     </div>
   `;
 
