@@ -107,7 +107,7 @@ tracksData.forEach(track => {
     <div class="player-controls">
       <button class="play-btn">▶️ Play</button>
       <button class="pause-btn">⏸️ Pause</button>
-    <a href="${track.buyLink}" target="_blank" class="buy-btn">💰 Buy</a>
+    <a href="${track.buyLink}" target="_blank" class="buy-btn">💰</a>
     </div>
   `;
 
