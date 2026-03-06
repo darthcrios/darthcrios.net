@@ -28,6 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // Tracks data
 const tracksData = [
   {
+    title: "Sample Pack Era EP",
+    albumArt: "AlbumArt/AlbumCover.jpg",
+    buyLink:"https://darthcrios.bandcamp.com/album/sample-pack-era"
+  },
+  {
     title: "Vibe With Me",
     albumArt: "AlbumArt/VWH4.jpg",
     audio: "Masters/VibeWithMe.mp3",
