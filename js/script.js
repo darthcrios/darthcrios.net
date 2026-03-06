@@ -30,6 +30,7 @@ const tracksData = [
   {
     title: "Sample Pack Era EP",
     albumArt: "AlbumArt/AlbumCover.jpg",
+    audio: "Masters/VibeWithMe.mp3",
     buyLink:"https://darthcrios.bandcamp.com/album/sample-pack-era"
   },
   {
