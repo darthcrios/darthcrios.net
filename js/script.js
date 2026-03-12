@@ -76,12 +76,6 @@ const tracksData = [
     buyLink: "https://darthcrios.bandcamp.com/track/isolated-red"
   },
   {
-    title: "Puca",
-    albumArt: "AlbumArt/Beach Ghost.jpeg",
-    audio: "Masters/GhostontheBeach.mp3",
-    buyLink: "https://darthcrios.bandcamp.com/track/puc-ar-an-tr"
-  },
-  {
     title: "Move Yo Body Ft Alex Arcana",
     albumArt: "AlbumArt/movyobody2.jpg",
     audio: "Masters/MoveyoBody.mp3",
