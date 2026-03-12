@@ -31,11 +31,6 @@ body{
   color: var(--text);
   background-color: var(--bg);
   line-height: 1.6;
-
-  display:flex;
-  min-height:100vh;
-  align-items:center;
-  justify-content:center;
   padding: 18px;
 }
 
@@ -55,6 +50,7 @@ h1,h2,h3,h4{
 
 /* Device shell */
 .app{
+  margin: 40px auto;
   width: min(980px, 96vw);
   border-radius: 22px;
   background: linear-gradient(180deg, #0c0c0c, #111);
