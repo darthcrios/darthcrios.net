@@ -7,6 +7,30 @@
   <link rel="stylesheet" href="playerstyle.css" />
 </head>
 <body>
+
+<!-- HEADER -->
+  <header class="hero scope-header">
+    <canvas id="scopeCanvas" aria-hidden="true"></canvas>
+
+    <div class="scope-ui">
+      <div class="brand">
+        <span class="dot"></span>
+        <span class="name">Críos</span>
+        <span class="tag">OSC // ONLINE</span>
+      </div>
+
+<nav class="scope-nav" aria-label="Primary">
+  <a href="index.html" data-wave="sine">Home</a>
+  <a href="blog.html" data-wave="triangle">Blog</a>
+  <!-- <a href="projects.html" data-wave="saw">Projects</a> -->
+  <a href="terminalplugin/index.html" data-wave="square">Terminal</a>
+  <a href="https://darthcrios.bandcamp.com/" data-wave="sine">Music Store</a>
+</nav>
+
+
+    </div>
+  </header>
+
   <div class="app">
     <div class="titlebar">
       <div class="title-left">
@@ -87,6 +111,7 @@
 
   <audio id="audio" preload="metadata"></audio>
 
+  <script src="../scope.js"></script>
   <script src="player.js"></script>
 </body>
 </html>
