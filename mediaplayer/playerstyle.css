@@ -116,13 +116,10 @@ h1,h2,h3,h4{
 }
 
 #cover{
-  width: 260px;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid var(--accent);
-  box-shadow: 0 0 10px rgba(0,0,0,.6);
-  background:#000;
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1/1;
+  height: auto;
 }
 
 .gloss{
@@ -191,6 +188,7 @@ input[type="range"]{
 /* Buttons */
 .btn-row{
   display:flex;
+  flex-wrap: wrap;
   align-items:center;
   gap:10px;
   margin-top: 12px;
@@ -258,7 +256,8 @@ input[type="range"]{
   display:flex;
   align-items:center;
   gap:8px;
-  min-width: 200px;
+  min-width: 0;
+  flex: 1;
 }
 .vol-ico{ opacity:.85; }
 
@@ -344,9 +343,40 @@ input[type="range"]{
 
 /* Mobile */
 @media (max-width: 900px){
+  body{
+    display:block;
+    padding:10px;
+  }
   .main{ grid-template-columns: 1fr; }
   .left{ border-right: none; border-bottom: 1px solid var(--line); }
   #cover{ width: 240px; height: 240px; }
 }
 
+/* Better Stacking? */
 
+@media (max-width: 600px){
+
+  .app{
+    width:100%;
+    border-radius:14px;
+  }
+
+  .cover-wrap{
+    display:flex;
+    justify-content:center;
+  }
+
+  .btn-row{
+    justify-content:center;
+  }
+
+  .vol{
+    width:100%;
+    margin-top:8px;
+  }
+
+  .playlist{
+    max-height:none;
+  }
+
+}
