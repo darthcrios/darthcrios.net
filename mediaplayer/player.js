@@ -22,14 +22,15 @@ const timeDur = document.getElementById("timeDur");
 
 // ---- Edit this list to your real tracks ----
 let tracks = [
-  { title: "Ghost on the Beach", artist: "Críos", src: "audio/GhostontheBeach.mp3", art: "art/Beach Ghost.jpeg" },
+  
   { title: "Isolated Red", artist: "Críos", src: "audio/IsolatedRed.mp3", art: "art/red_isolated.jpg" },
-  { title: "Keep Moving", artist: "Críos", src: "audio/KeepMoving.mp3", art: "art/Keep Moving.jpg"},
   { title: "LA Rain", artist: "Críos", src: "audio/LARain.mp3", art: "art/LA Rain.jpg"},
   { title: "Move Yo Body", artist: "Críos", src: "audio/MoveyoBody.mp3", art: "art/movyobody2.jpg"},
   { title: "Vibe With Me", artist: "Críos", src: "audio/VibeWithMe.mp3", art: "art/VWH4.jpg"},
   { title: "Riverbend Remix", artist: "Críos", src: "audio/Riverbend.mp3", art: "art/SinglesRemix.jpg"},
-  { title: "You Got The Feeling", artist: "Críos", src: "audio/YouGotTheFeeling.mp3", art:"art/SinglesCover.jpg"}
+  { title: "You Got The Feeling", artist: "Críos", src: "audio/YouGotTheFeeling.mp3", art:"art/SinglesCover.jpg"},
+  { title: "Keep Moving", artist: "Críos", src: "audio/KeepMoving.mp3", art: "art/Keep Moving.jpg"},
+  { title: "Ghost on the Beach", artist: "Críos", src: "audio/GhostontheBeach.mp3", art: "art/Beach Ghost.jpeg" },
 ];
 
 // Player state
