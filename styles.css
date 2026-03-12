@@ -76,6 +76,7 @@ html, body {
 =================================== */
 .hero.scope-header{
   position: relative;
+  z-index: 1000;
   height: 240px;
   overflow: hidden;
   background: var(--bg);
