@@ -162,6 +162,13 @@ html, body {
   transform: translateY(-1px);
 }
 
+.nav-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+
 /* MOBILE RESPONSIVENESS FOR SCOPE HEADER */
 @media (max-width: 768px) {
   .hero.scope-header{
@@ -178,7 +185,6 @@ html, body {
     font-size: 1.1rem;
   }
 }
-
 
 
 
