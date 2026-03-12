@@ -59,6 +59,16 @@ h1,h2,h3,h4{
   overflow:hidden;
 }
 
+.app-icon{
+  width:16px;
+  height:16px;
+  background:#e60000;
+  display:inline-block;
+  margin-right:6px;
+  border-radius:3px;
+}
+
+
 /* Layout */
 .main{
   display:grid;
