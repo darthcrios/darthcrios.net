@@ -134,7 +134,7 @@ function play() {
 
   audio.play().then(() => {
     btnPlay.textContent = "⏸";
-    setStatus(`Playing: ${currentTrack().title}`);
+    setStatus(` Playing: ${currentTrack().title}`);
   }).catch(() => {
     setStatus("Click Play to allow audio.");
   });
@@ -284,4 +284,4 @@ audio.volume = Number(vol.value);
 cover.src = tracks[0]?.art || "";
 loadTrack(0);
 renderPlaylist();
-setStatus("Ready. Click Play.");
+setStatus(" Ready. Click Play.");
