@@ -1,0 +1,352 @@
+/* =========================================================
+   CLOVERMIND – Nostalgic MP3 Player (matches your site style)
+   Fonts: Poppins body, Orbitron headings
+   Accent: #EB6123
+   ========================================================= */
+
+:root{
+  --bg: #111;
+  --bg2:#1a1a1a;
+  --panel:#111;
+  --panel2:#1a1a1a;
+
+  --text:#fff;
+  --muted:#ccc;
+
+  --accent:#e60000;
+  --accentSoft:#a259ff;
+
+  --line:#222;
+  --shadow: rgba(0,0,0,.55);
+
+  --r1: 14px;
+  --r2: 18px;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
+
+  display:flex;
+  min-height:100vh;
+  align-items:center;
+  justify-content:center;
+  padding: 18px;
+}
+
+h1,h2,h3,h4{
+  font-family: "Orbitron", system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Hide XP chrome from your current HTML */
+.titlebar,
+.menubar,
+.statusbar{
+  display:none !important;
+}
+
+/* Device shell */
+.app{
+  width: min(980px, 96vw);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #0c0c0c, #111);
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 60px var(--shadow);
+  overflow:hidden;
+}
+
+/* Layout */
+.main{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  min-height: 560px;
+}
+
+.left{
+  padding: 18px;
+  border-right: 1px solid var(--line);
+  background: #0f0f0f;
+}
+
+.right{
+  padding: 14px;
+  background: var(--bg2);
+}
+
+/* “Screen” card */
+.nowplaying{
+  border-radius: var(--r2);
+  background: linear-gradient(180deg, #101010, #0c0c0c);
+  border: 1px solid var(--line);
+  padding: 14px;
+  animation: borderGlow 4s infinite;
+}
+
+/* Orb/Brand strip (set image path if you want) */
+.nowplaying::before{
+  content:"";
+  display:block;
+  height: 52px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.65), rgba(0,0,0,.10)),
+    /* swap this image path to your logo/orb asset if you want */
+    url("WebHeadOrb.png") no-repeat center / cover;
+  opacity: .92;
+}
+
+/* Cover */
+.cover-wrap{
+  position:relative;
+  border-radius: 12px;
+  background: #0f0f0f;
+  border: 1px solid var(--line);
+  padding: 12px;
+  overflow:hidden;
+}
+
+#cover{
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 10px rgba(0,0,0,.6);
+  background:#000;
+}
+
+.gloss{
+  position:absolute;
+  inset: 12px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,0));
+  pointer-events:none;
+}
+
+/* Meta */
+.meta{ margin-top: 12px; }
+.track-title{
+  font-family: "Orbitron", system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 16px;
+  margin: 0;
+}
+.track-artist{
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Visualizer */
+.viz{
+  margin-top: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #0a0a0a;
+  overflow:hidden;
+}
+#vizCanvas{ display:block; width:100%; height:auto; }
+
+/* Transport */
+.transport{
+  margin-top: 14px;
+  border-radius: var(--r2);
+  background: #111;
+  border: 1px solid var(--line);
+  padding: 14px;
+  animation: borderGlow 4s infinite;
+}
+
+.time-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.time{
+  width: 50px;
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.seek-wrap{ flex:1; }
+
+input[type="range"]{
+  width:100%;
+  accent-color: var(--accent);
+}
+
+/* Buttons */
+.btn-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top: 12px;
+}
+
+.spacer{ flex:1; }
+
+.ctrl,
+.pill,
+.small{
+  cursor:pointer;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--text);
+  transition: all .2s ease;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.ctrl{
+  width: 46px;
+  height: 38px;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.ctrl.big{
+  width: 62px;
+  height: 42px;
+  border-radius: 14px;
+  font-size: 18px;
+}
+
+.pill{
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.small{
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.ctrl:hover,
+.pill:hover,
+.small:hover{
+  background-color: var(--accent);
+  color:#000;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.pill.on{
+  background-color: var(--accent);
+  color:#000;
+  box-shadow: 0 0 12px var(--accent);
+}
+
+/* Volume */
+.vol{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-width: 200px;
+}
+.vol-ico{ opacity:.85; }
+
+/* Playlist panel */
+.panel-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 6px 2px 12px;
+  font-family: "Orbitron", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 13px;
+}
+
+.playlist{
+  max-height: 520px;
+  overflow:auto;
+  padding-right: 2px;
+}
+
+.item{
+  display:grid;
+  grid-template-columns: 36px 1fr auto;
+  gap:10px;
+  align-items:center;
+
+  background: #111;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.item:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px rgba(0,0,0,.55);
+  border-color: rgba(235,97,35,.55);
+}
+
+.item.active{
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(235,97,35,.45);
+}
+
+.badge{
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display:grid;
+  place-items:center;
+
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-weight: 900;
+  font-family: "Orbitron", system-ui, sans-serif;
+}
+
+.item-title{
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--text);
+}
+.item-sub{
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.item-right{
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: .4px;
+}
+
+/* Tron glow (same concept as your site) */
+@keyframes borderGlow {
+  0%, 100% { box-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent); }
+  50%      { box-shadow: 0 0 20px var(--accentSoft), 0 0 30px var(--accent); }
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .main{ grid-template-columns: 1fr; }
+  .left{ border-right: none; border-bottom: 1px solid var(--line); }
+  #cover{ width: 240px; height: 240px; }
+}
+
+
