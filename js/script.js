@@ -46,34 +46,34 @@ const tracksData = [
     buyLink: "https://hypeddit.com/jgb5q7"
   },
   {
-    title: "Vibe With Me",
-    albumArt: "AlbumArt/VWH4.jpg",
-    audio: "Masters/VibeWithMe.mp3",
-    buyLink: "https://darthcrios.bandcamp.com/track/vibe-with-me"
+    title: "Keep Moving",
+    albumArt: "AlbumArt/Keep Moving.jpg",
+    audio: "Masters/KeepMoving.mp3",
+    buyLink: "https://darthcrios.bandcamp.com/album/sample-pack-era"
   },
   {
     title: "You Got the Feeling Ft Alan Martin",
     albumArt: "AlbumArt/SinglesCover.jpg",
     audio: "Masters/YouGotTheFeeling.mp3",
-    buyLink: "https://darthcrios.bandcamp.com/track/you-got-the-feeling"
+    buyLink: "https://darthcrios.bandcamp.com/album/sample-pack-era"
   },
   {
     title: "LA Rain",
     albumArt: "AlbumArt/LA Rain.jpg",
     audio: "Masters/LARain.mp3",
-    buyLink: "https://darthcrios.bandcamp.com/track/la-rain"
+    buyLink: "https://darthcrios.bandcamp.com/album/sample-pack-era"
   },
   {
     title: "Isolated Red",
     albumArt: "AlbumArt/red_isolated.jpg",
     audio: "Masters/IsolatedRed.mp3",
-    buyLink: "https://darthcrios.bandcamp.com/track/isolated-red"
+    buyLink: "https://darthcrios.bandcamp.com/album/sample-pack-era"
   },
   {
     title: "Move Yo Body Ft Alex Arcana",
     albumArt: "AlbumArt/movyobody2.jpg",
     audio: "Masters/MoveyoBody.mp3",
-    buyLink: "https://darthcrios.bandcamp.com/track/moveyobody"
+    buyLink: "https://darthcrios.bandcamp.com/album/sample-pack-era"
   },
 
 ];
