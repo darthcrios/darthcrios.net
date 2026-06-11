@@ -34,16 +34,22 @@ const tracksData = [
     buyLink:"https://darthcrios.bandcamp.com/album/sample-pack-era"
   },
   {
+    title: "Kollective - Riverbend Remix",
+    albumArt: "AlbumArt/SinglesRemix.jpg",
+    audio: "Masters/Riverbend.mp3",
+    buyLink: "https://hypeddit.com/y7pwp7"
+  },
+  {
+    title: "Killer Vibes",
+    albumArt: "AlbumArt/KillerVibesArt.jpg",
+    audio: "Masters/KillerVibes.mp3",
+    buyLink: "https://hypeddit.com/jgb5q7"
+  },
+  {
     title: "Vibe With Me",
     albumArt: "AlbumArt/VWH4.jpg",
     audio: "Masters/VibeWithMe.mp3",
     buyLink: "https://darthcrios.bandcamp.com/track/vibe-with-me"
-  },
-  {
-    title: "Kollective - Riverbend Remix",
-    albumArt: "AlbumArt/SinglesRemix.jpg",
-    audio: "Masters/Riverbend.mp3",
-    buyLink: "https://darthcrios.bandcamp.com/track/kollective-riverbend-ramparts-remix"
   },
   {
     title: "Keep Moving",
@@ -56,12 +62,6 @@ const tracksData = [
     albumArt: "AlbumArt/SinglesCover.jpg",
     audio: "Masters/YouGotTheFeeling.mp3",
     buyLink: "https://darthcrios.bandcamp.com/track/you-got-the-feeling"
-  },
-  {
-    title: "Killer Vibes",
-    albumArt: "AlbumArt/KillerVibesArt.jpg",
-    audio: "Masters/KillerVibes.mp3",
-    buyLink: "https://darthcrios.bandcamp.com/track/killer-vibes-bandcamp-exclusive"
   },
   {
     title: "LA Rain",
