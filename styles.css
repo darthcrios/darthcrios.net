@@ -62,6 +62,11 @@ html, body {
   transition: all 0.3s ease;
 }
 
+#enter-btn img {
+  display: block;
+  border: none;
+}
+
 #enter-btn:hover {
   color: var(--bg);
 }
