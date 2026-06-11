@@ -56,10 +56,26 @@ html, body {
 }
 
 #enter-btn {
-  color: var(--accent);
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    transition: transform 0.3s ease;
+}
+
+#enter-btn:hover {
+    transform: scale(1.02);
+}
+
+#enter-btn:focus,
+#enter-btn:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
 }
 
 #enter-btn img {
@@ -67,9 +83,7 @@ html, body {
   border: none;
 }
 
-#enter-btn:hover {
-  color: var(--bg);
-}
+
 
 /*#enter-btn {
   padding: 14px 28px;
