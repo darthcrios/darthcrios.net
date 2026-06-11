@@ -243,6 +243,7 @@ html, body {
 .section-header {
     clear: both;
     margin: 3rem 0 1.5rem;
+    border-bottom: 1px solid var(--accent);
 }
 
 .section-header img {
