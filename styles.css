@@ -55,6 +55,14 @@ html, body {
   color: #aaa;
 }
 
+.preview-logo {
+    display: block;
+    max-width: 90vw;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+}
+
 #enter-btn {
     background: none;
     border: none;
