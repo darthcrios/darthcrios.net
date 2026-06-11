@@ -220,8 +220,14 @@ html, body {
   .scope-nav a{
     font-size: 1.1rem;
   }
+  .side-art {
+        float: none;
+        display: block;
+        width: 100%;
+        max-height: none;
+        margin: 1rem 0;
+    }
 }
-
 
 
 /* ===================================
@@ -264,11 +270,14 @@ html, body {
 
 .side-art {
     float: right;
-    height: 600px;
-    width: auto;
+    width: 40%;
+    max-height: 600px;
+    height: auto;
     margin-left: 2rem;
     margin-bottom: 2rem;
 }
+
+
 
 /* Prevent floats from affecting new sections */
 section {
