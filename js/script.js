@@ -35,7 +35,7 @@ const tracksData = [
   },
   {
     title: "Kollective - Riverbend Remix",
-    albumArt: "AlbumArt/SinglesRemix.jpg",
+    albumArt: "AlbumArt/KollectiveRemix.jpg",
     audio: "Masters/Riverbend.mp3",
     buyLink: "https://hypeddit.com/y7pwp7"
   },
@@ -50,12 +50,6 @@ const tracksData = [
     albumArt: "AlbumArt/VWH4.jpg",
     audio: "Masters/VibeWithMe.mp3",
     buyLink: "https://darthcrios.bandcamp.com/track/vibe-with-me"
-  },
-  {
-    title: "Keep Moving",
-    albumArt: "AlbumArt/Keep Moving.jpg",
-    audio: "Masters/KeepMoving.mp3",
-    buyLink: "https://darthcrios.bandcamp.com/track/keep-moving"
   },
   {
     title: "You Got the Feeling Ft Alan Martin",
