@@ -320,6 +320,7 @@ html, body {
 .blog-post h2 {
   margin: 0 0 0.75rem;
   color: var(--text);
+  border-bottom: 1px solid var(--accent);
 }
 
 .blog-post .date {
