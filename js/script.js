@@ -41,7 +41,7 @@ const tracksData = [
   },
   {
     title: "Killer Vibes",
-    albumArt: "AlbumArt/KillerVibesArt.jpg",
+    albumArt: "AlbumArt/SinglesRemix.jpg",
     audio: "Masters/KillerVibes.mp3",
     buyLink: "https://hypeddit.com/jgb5q7"
   },
