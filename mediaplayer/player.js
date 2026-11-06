@@ -1,14 +1,22 @@
 "use strict";
+
+/* Críos Media Player
+ * Track data, playlist rendering, playback, controls, and visualizer.
+ * All media paths are relative to mediaplayer/player.html.
+ */
 (() => {
+  // 1. DOM REFERENCES: Find the player controls and display elements.
   const $ = id => document.getElementById(id);
   const audio = $("audio"), cover = $("cover"), trackTitle = $("trackTitle"), trackArtist = $("trackArtist");
   const statusText = $("statusText"), playlistEl = $("playlist"), seek = $("seek"), vol = $("vol");
   const btnPlay = $("btnPlay"), btnPrev = $("btnPrev"), btnNext = $("btnNext");
   const btnShuffle = $("btnShuffle"), btnRepeat = $("btnRepeat");
   const timeCur = $("timeCur"), timeDur = $("timeDur"), canvas = $("vizCanvas");
+  // Stop cleanly if the HTML is missing a required element.
   if (![audio,cover,trackTitle,trackArtist,statusText,playlistEl,seek,vol,btnPlay,btnPrev,btnNext,btnShuffle,btnRepeat,timeCur,timeDur].every(Boolean)) {
     console.error("Media player: required HTML elements are missing."); return;
   }
+  // 2. MUSIC LIBRARY: Edit track names, artist names, and file paths here.
   const tracks = [
 
   
@@ -21,10 +29,13 @@
   { title: "Keep Moving", artist: "Críos", src: "audio/KeepMoving.mp3", art: "art/Keep Moving.jpg"},
   { title: "Ghost on the Beach", artist: "Críos", src: "audio/GhostontheBeach.mp3", art: "art/Beach Ghost.jpeg" },
   ];
+  // 3. PLAYER STATE: Current track and playback modes.
   let index = 0, shuffle = false, repeat = false, seeking = false;
   let context, analyser, frequencies, animationStarted = false;
+  // 4. SMALL HELPERS: Format time and show player status messages.
   const fmt = n => Number.isFinite(n) && n >= 0 ? `${Math.floor(n / 60)}:${String(Math.floor(n % 60)).padStart(2,"0")}` : "0:00";
   const status = message => { statusText.textContent = message; };
+  // 5. PLAYLIST UI: Build accessible, clickable track rows.
   function renderPlaylist() {
     playlistEl.replaceChildren();
     tracks.forEach((track, i) => {
@@ -33,6 +44,11 @@
       row.setAttribute("aria-current", i === index ? "true" : "false");
       const badge = document.createElement("span"); badge.className = "badge"; badge.textContent = String(i + 1);
       const details = document.createElement("span");
+      // Keep title and artist on separate lines with visible spacing.
+      details.style.display = "flex";
+      details.style.flexDirection = "column";
+      details.style.gap = "6px";
+      details.style.minWidth = "0";
       const title = document.createElement("span"); title.className = "item-title"; title.textContent = track.title;
       const artist = document.createElement("span"); artist.className = "item-sub"; artist.textContent = track.artist;
       details.append(title, artist);
@@ -42,6 +58,7 @@
       playlistEl.append(row);
     });
   }
+  // 6. TRACK LOADING: Update audio source, artwork, labels, and timeline.
   function loadTrack(i, autoplay = false) {
     if (!tracks.length) { status("No tracks configured."); return; }
     index = (i + tracks.length) % tracks.length;
@@ -53,6 +70,7 @@
     btnPlay.textContent = "▶"; status(`Loaded: ${track.title}`); renderPlaylist();
     if (autoplay) play();
   }
+  // 7. AUDIO VISUALIZER: Initialize Web Audio only when needed.
   function setupVisualizer() {
     const AudioContextClass = window.AudioContext || window.webkitAudioContext;
     if (!AudioContextClass || !canvas || context) return;
@@ -65,6 +83,7 @@
       if (!animationStarted) { animationStarted = true; requestAnimationFrame(drawVisualizer); }
     } catch (error) { console.warn("Visualizer unavailable:", error); }
   }
+  // Draw frequency bars in the site's red and purple colors.
   function drawVisualizer() {
     if (!analyser || !canvas) return;
     const ctx = canvas.getContext("2d"); if (!ctx) return;
@@ -80,6 +99,7 @@
     if (!document.hidden || !audio.paused) requestAnimationFrame(drawVisualizer);
     else { animationStarted = false; }
   }
+  // 8. PLAYBACK: Start audio and resume suspended browser audio contexts.
   async function play() {
     setupVisualizer();
     try {
@@ -87,6 +107,7 @@
       await audio.play();
     } catch (error) { status("Playback unavailable. Check the audio file and browser permissions."); console.warn(error); }
   }
+  // Choose the next track; shuffle avoids replaying the current one.
   function next() {
     if (!tracks.length) return;
     if (shuffle && tracks.length > 1) {
@@ -94,6 +115,7 @@
       loadTrack(index + offset, true);
     } else loadTrack(index + 1, true);
   }
+  // 9. CONTROL EVENTS: Play/pause, skip, shuffle, repeat, volume, seek.
   btnPlay.addEventListener("click", () => audio.paused ? play() : audio.pause());
   btnNext.addEventListener("click", next);
   btnPrev.addEventListener("click", () => {
@@ -105,14 +127,17 @@
   vol.addEventListener("input", () => { audio.volume = Number(vol.value); });
   seek.addEventListener("input", () => { seeking = true; if (Number.isFinite(audio.duration)) timeCur.textContent = fmt(Number(seek.value)/1000*audio.duration); });
   seek.addEventListener("change", () => { if (Number.isFinite(audio.duration) && audio.duration > 0) audio.currentTime = Number(seek.value)/1000*audio.duration; seeking = false; });
+  // 10. AUDIO EVENTS: Keep the UI synchronized with real playback.
   audio.addEventListener("loadedmetadata", () => { timeDur.textContent = fmt(audio.duration); });
   audio.addEventListener("timeupdate", () => { if (seeking) return; timeCur.textContent = fmt(audio.currentTime); if (Number.isFinite(audio.duration) && audio.duration > 0) seek.value = String(Math.round(audio.currentTime/audio.duration*1000)); });
   audio.addEventListener("play", () => { btnPlay.textContent = "⏸"; status(`Playing: ${tracks[index].title}`); renderPlaylist(); if (analyser && !animationStarted) { animationStarted=true; requestAnimationFrame(drawVisualizer); } });
   audio.addEventListener("pause", () => { btnPlay.textContent = "▶"; if (!audio.ended) status("Paused."); renderPlaylist(); });
   audio.addEventListener("ended", () => { if (repeat) { audio.currentTime=0; play(); } else next(); });
   audio.addEventListener("error", () => { btnPlay.textContent="▶"; status(`Cannot load: ${tracks[index].title}. Check ${tracks[index].src}`); });
+  // 11. ERROR HANDLING: Gracefully handle unavailable artwork.
   cover.addEventListener("error", () => { cover.removeAttribute("src"); cover.alt = "Artwork unavailable"; });
   document.addEventListener("visibilitychange", () => { if (!document.hidden && analyser && !animationStarted) { animationStarted=true; requestAnimationFrame(drawVisualizer); } });
+  // 12. INITIALIZATION: Set volume and display the first track.
   audio.volume = Number(vol.value);
   loadTrack(0);
 })();
