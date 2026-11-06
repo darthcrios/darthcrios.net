@@ -43,13 +43,22 @@ function moveScopeToHeader() {
   resize();
 }
 
-// Restore Scope to header once preview fades out
-preview.addEventListener("transitionend", (e) => {
-  if (e.propertyName === "opacity" &&
-      getComputedStyle(preview).opacity === "0") {
-    moveScopeToHeader();
-  }
-});
+// Restore Scope to header when ENTER is clicked
+const enterBtn = document.getElementById("enter-btn");
+
+if (enterBtn) {
+  enterBtn.addEventListener("click", () => {
+    // Wait for the 0.8s preview fade
+    setTimeout(() => {
+      header.insertBefore(canvas, header.firstChild);
+
+      // Recalculate canvas dimensions after moving
+      requestAnimationFrame(() => {
+        resize();
+      });
+    }, 800);
+  });
+}
 
   // hover-driven waveform switching
   let wave = "sine";
