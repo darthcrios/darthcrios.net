@@ -1,4 +1,4 @@
-// ENTER SITE BUTTON
+/ENTER SITE BUTTON
 document.addEventListener("DOMContentLoaded", () => {
   const enterBtn = document.getElementById("enter-btn");
   const preview = document.getElementById("preview");
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 50);
     }, 800);
   });
-});
+}); /
 
 
 
