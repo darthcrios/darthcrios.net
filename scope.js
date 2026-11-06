@@ -1,12 +1,20 @@
 (() => {
-const canvas = document.getElementById("scopeCanvas");
-const preview = document.getElementById("preview");
-const header = document.querySelector(".scope-header");
+  const canvas = document.getElementById("scopeCanvas");
+  const preview = document.getElementById("preview");
+  const header = document.querySelector(".scope-header");
 
-if (!canvas || !preview || !header) return;
+  if (!canvas || !header) return;
 
-// Move the existing Scope into the fullscreen preview
-preview.insertBefore(canvas, preview.firstChild);
+  // Homepage: move Scope into fullscreen preview
+  // Other pages: leave Scope in its header
+  if (preview) {
+    preview.insertBefore(canvas, preview.firstChild);
+  }
+
+  const ctx = canvas.getContext("2d", { alpha: true });
+  const DPR = Math.min(2, window.devicePixelRatio || 1);
+  let W = 0, H = 0;
+
 
   const ctx = canvas.getContext("2d", { alpha: true });
   const DPR = Math.min(2, window.devicePixelRatio || 1);
