@@ -4,8 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Críos Music Network | Media Player</title>
+  <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="playerstyle.css" />
-  <link rel="stylesheet"href="../styles.css" />
+  <meta name="description" content="Listen to original Críos tracks in the Críos Music Network media player." />
 </head>
 <body>
 
@@ -23,7 +24,7 @@
 <nav class="scope-nav" aria-label="Primary">
   <a href="../index.html" data-wave="sine">Home</a>
   <a href="../blog.html" data-wave="triangle">Blog</a>
-  <!-- <a href="projects.html" data-wave="saw">Projects</a> -->
+  <a href="../projects.html" data-wave="saw">Projects</a>
   <a href="../terminalplugin/index.html" data-wave="square">Terminal</a>
   <a href="https://darthcrios.bandcamp.com/" data-wave="sine">Music Store</a>
 </nav>
@@ -38,22 +39,15 @@
         <span class="app-icon"></span>
         <span class="title-text">Críos Media Player</span>
       </div>
-      <div class="title-right">
-        <button class="win-btn" title="Minimize">—</button>
-        <button class="win-btn" title="Maximize">▢</button>
-        <button class="win-btn close" title="Close">✕</button>
-      </div>
     </div>
 
-    <div class="menubar">
-      <span>File </span><span>View </span><span>Play </span><span>Tools </span><span>Help </span>
-    </div>
+    
 
     <div class="main">
       <div class="left">
         <div class="nowplaying">
           <div class="cover-wrap">
-            <img id="cover" alt="Album art" />
+            <img id="cover" alt="Current track artwork" />
             <div class="gloss"></div>
           </div>
 
@@ -71,7 +65,7 @@
           <div class="time-row">
             <span id="timeCur" class="time">0:00</span>
             <div class="seek-wrap">
-              <input id="seek" type="range" min="0" max="1000" value="0" />
+              <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Seek through track" />
             </div>
             <span id="timeDur" class="time">0:00</span>
           </div>
@@ -83,12 +77,12 @@
 
             <div class="spacer"></div>
 
-            <button id="btnShuffle" class="pill" title="Shuffle">Shuffle</button>
-            <button id="btnRepeat" class="pill" title="Repeat">Repeat</button>
+            <button id="btnShuffle" class="pill" title="Shuffle" aria-pressed="false">Shuffle</button>
+            <button id="btnRepeat" class="pill" title="Repeat" aria-pressed="false">Repeat</button>
 
             <div class="vol">
               <span class="vol-ico">🔊</span>
-              <input id="vol" type="range" min="0" max="1" step="0.01" value="0.85" />
+              <input id="vol" type="range" min="0" max="1" step="0.01" value="0.85" aria-label="Volume" />
             </div>
           </div>
         </div>
@@ -97,7 +91,7 @@
       <div class="right">
         <div class="panel-head">
           <span>Playlist</span>
-          <button id="btnAddMock" class="small">+ Demo</button>
+          
         </div>
 
         <div id="playlist" class="playlist"></div>
@@ -105,8 +99,8 @@
     </div>
 
     <div class="statusbar">
-      <span id="statusText">Ready.</span>
-      <span class="status-right">XP Mode </span>
+      <span id="statusText" role="status" aria-live="polite">Ready.</span>
+      <span class="status-right">CRÍOS // ONLINE</span>
     </div>
   </div>
 
