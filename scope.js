@@ -1,6 +1,12 @@
 (() => {
-  const canvas = document.getElementById("scopeCanvas");
-  if (!canvas) return;
+const canvas = document.getElementById("scopeCanvas");
+const preview = document.getElementById("preview");
+const header = document.querySelector(".scope-header");
+
+if (!canvas || !preview || !header) return;
+
+// Move the existing Scope into the fullscreen preview
+preview.insertBefore(canvas, preview.firstChild);
 
   const ctx = canvas.getContext("2d", { alpha: true });
   const DPR = Math.min(2, window.devicePixelRatio || 1);
@@ -30,6 +36,20 @@
   }
   window.addEventListener("resize", resize);
   resize();
+
+  // Resize Scope when entering or leaving preview
+function moveScopeToHeader() {
+  header.insertBefore(canvas, header.firstChild);
+  resize();
+}
+
+// Restore Scope to header once preview fades out
+preview.addEventListener("transitionend", (e) => {
+  if (e.propertyName === "opacity" &&
+      getComputedStyle(preview).opacity === "0") {
+    moveScopeToHeader();
+  }
+});
 
   // hover-driven waveform switching
   let wave = "sine";
