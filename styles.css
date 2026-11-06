@@ -65,7 +65,7 @@ html, body {
     font-size: clamp(2rem, 6vw, 4rem);
     letter-spacing: 0.15em;
     color: var(--text);
-    text-shadow: 0 0 20px rgba(162,89,255,0.5);
+    /*text-shadow: 0 0 20px rgba(162,89,255,0.5);*/
 }
 
 .preview-overlay p {
