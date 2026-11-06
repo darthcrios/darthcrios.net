@@ -1,4 +1,28 @@
+//ENTER SITE BUTTON
+document.addEventListener("DOMContentLoaded", () => {
+  const enterBtn = document.getElementById("enter-btn");
+  const preview = document.getElementById("preview");
+  const main = document.getElementById("main");
 
+  if (!enterBtn || !preview || !main) return;
+
+  main.style.display = "none";
+  main.style.opacity = 0;
+
+  enterBtn.addEventListener("click", () => {
+    preview.style.opacity = 0;
+
+    setTimeout(() => {
+      preview.style.display = "none";
+      main.style.display = "block";
+
+      setTimeout(() => {
+        main.style.opacity = 1;
+        window.dispatchEvent(new Event("resize"));
+      }, 50);
+    }, 800);
+  });
+});
 
 
 
