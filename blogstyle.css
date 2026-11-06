@@ -38,71 +38,85 @@ body {
 }
 
 /* ===================================
-   SCOPE PREVIEW SCREEN
+   PREVIEW SCREEN
 =================================== */
-
 #preview {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--bg);
-    overflow: hidden;
-    z-index: 10;
-    transition: opacity 0.8s ease;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  text-align: center;
+  transition: opacity 0.8s ease;
+  z-index: 10;
 }
 
-/* Fullscreen Scope */
-
-#previewScopeCanvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+#preview h1 {
+  font-size: 48px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
 }
 
-/* Preview Overlay */
-
-.preview-overlay {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    pointer-events: none;
+#preview p {
+  font-size: 22px;
+  margin-bottom: 32px;
+  color: #aaa;
 }
 
-.preview-overlay h1 {
-    font-size: clamp(2rem, 6vw, 4rem);
-    letter-spacing: 0.15em;
-    color: var(--text);
-    /*text-shadow: 0 0 20px rgba(162,89,255,0.5);*/
+.preview-logo {
+    display: block;
+    max-width: 90vw;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
 }
-
-.preview-overlay p {
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    font-size: 1.2rem;
-}
-
-/* Enter Button */
 
 #enter-btn {
-    pointer-events: auto;
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 14px 32px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 1.1rem;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
     cursor: pointer;
-    transition: 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    transition: transform 0.3s ease;
 }
 
 #enter-btn:hover {
-    background: var(--accent);
-    color: var(--bg);
-    box-shadow: 0 0 25px rgba(162,89,255,0.5);
+    transform: scale(1.02);
 }
+
+#enter-btn:focus,
+#enter-btn:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+#enter-btn img {
+  display: block;
+  border: none;
+}
+
+/*#enter-btn {
+  padding: 14px 28px;
+  font-size: 16px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#enter-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+}*/
+
 
 /* =========================================================
    HEADER / HERO (Oscilloscope Scope)
