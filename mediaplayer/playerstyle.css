@@ -27,7 +27,7 @@
 
 body{
   margin:0;
-  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   color: var(--player-text);
   background-color: var(--player-bg);
   line-height: 1.6;
@@ -35,7 +35,7 @@ body{
 }
 
 h1,h2,h3,h4{
-  font-family: "Orbitron", system-ui, sans-serif;
+  font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -139,7 +139,7 @@ h1,h2,h3,h4{
 /* Meta */
 .meta{ margin-top: 12px; }
 .track-title{
-  font-family: "Orbitron", system-ui, sans-serif;
+  font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.2px;
@@ -273,7 +273,7 @@ input[type="range"]{
   align-items:center;
   justify-content:space-between;
   padding: 6px 2px 12px;
-  font-family: "Orbitron", system-ui, sans-serif;
+  font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   font-size: 13px;
@@ -321,7 +321,7 @@ input[type="range"]{
   border: 1px solid var(--player-accent);
   color: var(--player-accent);
   font-weight: 900;
-  font-family: "Orbitron", system-ui, sans-serif;
+  font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 .item-title{
@@ -393,7 +393,7 @@ body { padding: 0; }
 .app .main { min-width: 0; }
 .app .left, .app .right { min-width: 0; }
 .app .titlebar, .app .statusbar { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:10px 16px; background:#090909; }
-.app .titlebar { border-bottom:1px solid var(--player-line); font-family:Orbitron, sans-serif; font-size:.9rem; }
+.app .titlebar { border-bottom:1px solid var(--player-line); font-family:"Share Tech Mono", monospace; font-size:.9rem; }
 .app .statusbar { border-top:1px solid var(--player-line); font-size:.8rem; color:var(--player-muted); }
 .app .cover-wrap { text-align:center; }
 .app #cover { display:block; margin:auto; object-fit:cover; border-radius:10px; }
@@ -404,3 +404,6 @@ body { padding: 0; }
 .app .vol input { min-width:70px; }
 @media(max-width:600px) { .app { width:calc(100% - 20px); margin:12px auto 32px; } .app .left,.app .right { padding:12px; } .app .time-row { gap:5px; } .app .time { width:40px; } }
 @media(prefers-reduced-motion:reduce) { .app .nowplaying,.app .transport { animation:none; } .app *, .app *::before { transition:none !important; } }
+
+/* Match the main DarthCríos website typography, including controls. */
+.app, .app button, .app input, .app select { font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
