@@ -1,28 +1,43 @@
 // ENTER SITE BUTTON
-document.addEventListener("DOMContentLoaded", () => {
-  const enterBtn = document.getElementById("enter-btn");
-  const preview = document.getElementById("preview");
-  const main = document.getElementById("main");
+(() => {
+  document.addEventListener("DOMContentLoaded", () => {
+    const enterBtn = document.getElementById("enter-btn");
+    const preview = document.getElementById("preview");
+    const main = document.getElementById("main");
+    const canvas = document.getElementById("scopeCanvas");
+    const header = document.querySelector(".scope-header");
 
-  if (!enterBtn || !preview || !main) return;
+    if (!enterBtn || !preview || !main) return;
 
-  main.style.display = "none";
-  main.style.opacity = 0;
+    main.style.display = "none";
+    main.style.opacity = 0;
 
-  enterBtn.addEventListener("click", () => {
-    preview.style.opacity = 0;
-
-    setTimeout(() => {
-      preview.style.display = "none";
-      main.style.display = "block";
+    enterBtn.addEventListener("click", () => {
+      // Start preview fade
+      preview.style.opacity = 0;
 
       setTimeout(() => {
-        main.style.opacity = 1;
-        window.dispatchEvent(new Event("resize"));
-      }, 50);
-    }, 800);
+        // RESTORE SCOPE BEFORE HIDING PREVIEW
+        if (canvas && header) {
+          header.insertBefore(canvas, header.firstChild);
+        }
+
+        // Hide preview and reveal main
+        preview.style.display = "none";
+        main.style.display = "block";
+
+        // Resize Scope once header is visible
+        requestAnimationFrame(() => {
+          window.dispatchEvent(new Event("resize"));
+
+          main.style.opacity = 1;
+        });
+
+      }, 800);
+    });
   });
-});
+})();
+
 
 
 // Tracks data
