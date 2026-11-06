@@ -86,7 +86,7 @@
       ctx.moveTo(0,yy); ctx.lineTo(W,yy);
     }
     ctx.stroke();
-    
+
     // blend wave type smoothly
     if (blend < 1) blend = Math.min(1, blend + 0.10);
 
@@ -118,3 +118,12 @@
     ctx.lineWidth = 2.4;
     ctx.strokeStyle = rgba(accent, 0.98);
     ctx.stroke();
+
+    // once blended, commit
+    if (blend === 1) wave = target;
+
+    requestAnimationFrame((n)=>draw(n/1000));
+  }
+
+  requestAnimationFrame((n)=>draw(n/1000));
+})();
