@@ -83,10 +83,14 @@
             <button id="btnShuffle" class="pill" title="Shuffle" aria-pressed="false">Shuffle</button>
             <button id="btnRepeat" class="pill" title="Repeat" aria-pressed="false">Repeat</button>
 
-            <div class="vol">
-              <span class="vol-ico">🔊</span>
-              <input id="vol" type="range" min="0" max="1" step="0.01" value="0.85" aria-label="Volume" />
-            </div>
+          </div>
+
+          <!-- Volume has its own row so it never crowds the transport buttons. -->
+          <div class="volume-row" role="group" aria-label="Volume controls">
+            <button id="btnMute" class="volume-mute" type="button" aria-label="Mute audio" aria-pressed="false" title="Mute or unmute">🔊</button>
+            <label for="vol" class="volume-label">Volume</label>
+            <input id="vol" type="range" min="0" max="1" step="0.01" value="0.85" aria-label="Volume" />
+            <output id="volumeValue" for="vol">85%</output>
           </div>
         </div>
       </div>

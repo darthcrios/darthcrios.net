@@ -12,8 +12,9 @@
   const btnPlay = $("btnPlay"), btnPrev = $("btnPrev"), btnNext = $("btnNext");
   const btnShuffle = $("btnShuffle"), btnRepeat = $("btnRepeat");
   const timeCur = $("timeCur"), timeDur = $("timeDur"), canvas = $("vizCanvas");
+  const btnMute = $("btnMute"), volumeValue = $("volumeValue");
   // Stop cleanly if the HTML is missing a required element.
-  if (![audio,cover,trackTitle,trackArtist,statusText,playlistEl,seek,vol,btnPlay,btnPrev,btnNext,btnShuffle,btnRepeat,timeCur,timeDur].every(Boolean)) {
+  if (![audio,cover,trackTitle,trackArtist,statusText,playlistEl,seek,vol,btnPlay,btnPrev,btnNext,btnShuffle,btnRepeat,timeCur,timeDur,btnMute,volumeValue].every(Boolean)) {
     console.error("Media player: required HTML elements are missing."); return;
   }
   // 2. MUSIC LIBRARY: Edit track names, artist names, and file paths here.
@@ -31,7 +32,8 @@
   ];
   // 3. PLAYER STATE: Current track and playback modes.
   let index = 0, shuffle = false, repeat = false, seeking = false;
-  let context, analyser, frequencies, animationStarted = false;
+  let context, analyser, gainNode, frequencies, animationStarted = false;
+  let lastNonZeroVolume = 0.85;
   // 4. SMALL HELPERS: Format time and show player status messages.
   const fmt = n => Number.isFinite(n) && n >= 0 ? `${Math.floor(n / 60)}:${String(Math.floor(n % 60)).padStart(2,"0")}` : "0:00";
   const status = message => { statusText.textContent = message; };
@@ -78,7 +80,14 @@
       context = new AudioContextClass();
       analyser = context.createAnalyser(); analyser.fftSize = 256;
       const source = context.createMediaElementSource(audio);
-      source.connect(analyser); analyser.connect(context.destination);
+      // Route the media element through the analyser and a dedicated volume gain node.
+      // The gain node controls audible output even while the visualizer is active.
+      gainNode = context.createGain();
+      source.connect(analyser);
+      analyser.connect(gainNode);
+      gainNode.connect(context.destination);
+      audio.volume = 1; // Avoid applying volume twice; gainNode owns it in Web Audio mode.
+      gainNode.gain.value = Number(vol.value);
       frequencies = new Uint8Array(analyser.frequencyBinCount);
       if (!animationStarted) { animationStarted = true; requestAnimationFrame(drawVisualizer); }
     } catch (error) { console.warn("Visualizer unavailable:", error); }
@@ -124,7 +133,24 @@
   });
   btnShuffle.addEventListener("click", () => { shuffle = !shuffle; btnShuffle.classList.toggle("on",shuffle); btnShuffle.setAttribute("aria-pressed",String(shuffle)); status(`Shuffle: ${shuffle ? "ON" : "OFF"}`); });
   btnRepeat.addEventListener("click", () => { repeat = !repeat; btnRepeat.classList.toggle("on",repeat); btnRepeat.setAttribute("aria-pressed",String(repeat)); status(`Repeat: ${repeat ? "ON" : "OFF"}`); });
-  vol.addEventListener("input", () => { audio.volume = Number(vol.value); });
+  // Volume works with or without Web Audio support, and keeps the UI in sync.
+  function setVolume(value) {
+    const level = Math.max(0, Math.min(1, Number(value) || 0));
+    vol.value = String(level);
+    if (level > 0) lastNonZeroVolume = level;
+    if (gainNode && context) {
+      audio.volume = 1;
+      gainNode.gain.setValueAtTime(level, context.currentTime);
+    } else {
+      audio.volume = level;
+    }
+    volumeValue.textContent = `${Math.round(level * 100)}%`;
+    btnMute.textContent = level === 0 ? "🔇" : level < 0.5 ? "🔉" : "🔊";
+    btnMute.setAttribute("aria-pressed", String(level === 0));
+    btnMute.setAttribute("aria-label", level === 0 ? "Unmute audio" : "Mute audio");
+  }
+  vol.addEventListener("input", () => setVolume(vol.value));
+  btnMute.addEventListener("click", () => setVolume(Number(vol.value) === 0 ? lastNonZeroVolume : 0));
   seek.addEventListener("input", () => { seeking = true; if (Number.isFinite(audio.duration)) timeCur.textContent = fmt(Number(seek.value)/1000*audio.duration); });
   seek.addEventListener("change", () => { if (Number.isFinite(audio.duration) && audio.duration > 0) audio.currentTime = Number(seek.value)/1000*audio.duration; seeking = false; });
   // 10. AUDIO EVENTS: Keep the UI synchronized with real playback.
@@ -138,6 +164,6 @@
   cover.addEventListener("error", () => { cover.removeAttribute("src"); cover.alt = "Artwork unavailable"; });
   document.addEventListener("visibilitychange", () => { if (!document.hidden && analyser && !animationStarted) { animationStarted=true; requestAnimationFrame(drawVisualizer); } });
   // 12. INITIALIZATION: Set volume and display the first track.
-  audio.volume = Number(vol.value);
+  setVolume(vol.value);
   loadTrack(0);
 })();

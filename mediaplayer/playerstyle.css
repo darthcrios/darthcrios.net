@@ -1,7 +1,7 @@
 /* =========================================================
    CLOVERMIND – Nostalgic MP3 Player (matches your site style)
-   Fonts: Poppins body, Orbitron headings
-   Accent: #EB6123
+   Font: Share Tech Mono
+   Accents: red and purple
    ========================================================= */
 
 .app{
@@ -407,3 +407,35 @@ body { padding: 0; }
 
 /* Match the main DarthCríos website typography, including controls. */
 .app, .app button, .app input, .app select { font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+/* =========================================================
+   VOLUME CONTROLS
+   A dedicated row prevents overflow alongside playback buttons.
+   ========================================================= */
+.app .volume-row {
+  display: grid;
+  grid-template-columns: 38px auto minmax(0, 1fr) 48px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--player-line);
+  min-width: 0;
+}
+.app .volume-mute {
+  width: 38px;
+  height: 36px;
+  border: 1px solid var(--player-accent);
+  border-radius: 9px;
+  color: var(--player-text);
+  background: #171717;
+  cursor: pointer;
+}
+.app .volume-mute:hover { border-color: var(--player-accent-soft); }
+.app .volume-label { color: var(--player-muted); font-size: .85rem; }
+.app #vol { width: 100%; min-width: 0; margin: 0; accent-color: var(--player-accent); cursor: pointer; }
+.app #volumeValue { color: var(--player-text); text-align: right; font-size: .85rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 420px) {
+  .app .volume-row { grid-template-columns: 38px minmax(0, 1fr) 42px; gap: 8px; }
+  .app .volume-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
