@@ -86,7 +86,7 @@
       ctx.moveTo(0,yy); ctx.lineTo(W,yy);
     }
     ctx.stroke();
-
+    
     // blend wave type smoothly
     if (blend < 1) blend = Math.min(1, blend + 0.10);
 
