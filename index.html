@@ -3,18 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Críos Network | Home</title>
+  <title>Darth Críos | Electronic Music Producer, DJ & Artist</title>
+  <meta name="description" content="Explore music, videos, and creative projects by Darth Críos, electronic music producer and DJ.">
   <link rel="icon" href="images/favicon-32x32.png" type="image/png">
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-  
-<!-- PREVIEW PAGE -->
-<div id="preview">
-  <!-- <p> Music Producer • DJ </p> -->
-  <button id="enter-btn"> <img src="images/CriosLogoG.gif" alt="Crios" class="preview-logo"></button>
-</div>
 
 <!-- HEADER -->
   <header class="hero scope-header">
@@ -41,14 +36,14 @@
   </header>
 
   <!-- MAIN PAGE -->
-<div id="main">
+<main id="main">
 
   <!-- ABOUT SECTION -->
 
     <section class="about">
 
       <h2>BEATOBER 2026</h2>
-      <p> Every October I praticipate in BEATOBER! Which is a month long a beat a day challenge. It doesnt matter what style or genre, you just gotta create something everyday. No more then 60 seconds of music and/or video. It is alot of fun and way tougher then it sounds. For the last two years I managed to hit 31, lets see how far I get this year.</p>
+      <p> Every October I participate in BEATOBER! Which is a month long a beat a day challenge. It doesn’t matter what style or genre, you just gotta create something everyday. No more than 60 seconds of music and/or video. It is a lot of fun and way tougher then it sounds. For the last two years I managed to hit 31, lets see how far I get this year.</p>
       <p>Check out the website <a href="https://www.beatober.com/">BEATOBER</a> for more information.</p>
       <br>
 
@@ -106,121 +101,6 @@
 </section>
 
 
-  <!-- BLOG PREVIEW 
-
-  <section class="section-header">
-    <img src="images/BlogsHeader.png" alt="Blogs">
-</section>
-<section class="blog">
-    <!-<h2 class="blog-header"></h2>
-    
-    <img src="images/EDCFLame.png"
-     alt="EDC25"
-     class="side-art">
-
-    <div class="blog-grid">
-
-      <div class="blog-post">
-        <h3>🎃Spooky Season🎃</h3>
-        <p>Short Story about Críos running around LA...</p>
-        <p><a href="blog.html">More</a></p>
-      </div>
-
-      <div class="blog-post">
-        <h3>🔥Heatwave🔥</h3>
-        <p>It's pretty hot these days</p>
-        <p><a href="blog.html">More</a></p>
-      </div>
-
-      <div class="blog-post">
-        <h3>☀️Mo Cairde i Venice☀️</h3>
-        <p>Blogs in Irish ☘️</p>
-        <p><a href="blog.html">More</a></p>
-      </div>
-
-    </div>
-  </section> -->
-
-  <!-- RADIO APP SECTION 
-    <section class="blog">
-      <h2>RADIO APP</h2>
-        <p>Access <a href="https://darthcrios.net/radioapp/index.html">RADIO APP</a></p>
-    </section> -->
-
-  <!-- Radio 
-  <section class="radio">
-  <h2>80.8FM</h2>
-
-  <div class="audio-player">
-    <div class="artwork-wrapper">
-      <img id="albumArt" src="images/criosred.gif" alt="Album Art" />
-    </div>
-
-    <p>
-      🔊 Streaming from the CMN - Radio Server:
-      <span id="currentSong">Loading...</span>
-    </p>
-
-    <p class="listeners">👥 Listeners: <span id="listenerCount">0</span></p>
-
-    <audio id="liveAudio" controls preload="none">
-      <source src="https://radio.darthcrios.net/stream" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-
-  <script>
-    const fallbackArt = "images/criosred.gif"; // ← your default logo path
-
-    function updateSongInfo() {
-      fetch("https://radio.darthcrios.net/status-json.xsl")
-        .then(response => response.json())
-        .then(data => {
-          let source = data.icestats.source;
-          let song = "Unknown Track";
-          let listeners = 0;
-          let artUrl = fallbackArt;
-
-          // Handle array or single source object
-          if (Array.isArray(source) && source.length) {
-            song = source[0].title || song;
-            listeners = source[0].listeners || 0;
-            if (source[0].albumart) artUrl = source[0].albumart;
-          } else if (source && source.title) {
-            song = source.title;
-            listeners = source.listeners || 0;
-            if (source.albumart) artUrl = source.albumart;
-          }
-
-          // Update song title
-          const songEl = document.getElementById("currentSong");
-          if (songEl.textContent !== song) {
-            songEl.style.opacity = "0.4";
-            setTimeout(() => {
-              songEl.textContent = song;
-              songEl.style.opacity = "1";
-            }, 250);
-          }
-
-          // Update listeners
-          document.getElementById("listenerCount").textContent = listeners;
-
-          // Update artwork (with fallback)
-          const artEl = document.getElementById("albumArt");
-          artEl.src = artUrl || fallbackArt;
-        })
-        .catch(err => {
-          document.getElementById("currentSong").textContent = "Error fetching song info";
-          console.error("Radio metadata fetch error:", err);
-        });
-    }
-
-    // Refresh every 5 seconds
-    setInterval(updateSongInfo, 5000);
-    updateSongInfo();
-  </script>
-</section> -->
-
 
 <!-- FOOTER -->
   <footer>
@@ -231,7 +111,7 @@
       <a href="https://www.youtube.com/@darthcrios">YouTube</a>
     </div>
   </footer>
-</div>
+</main>
 
 <script src="scope.js"></script>
 <script src="js/script.js"></script>

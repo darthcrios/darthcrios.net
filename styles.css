@@ -28,86 +28,6 @@ html, body {
 }
 
 /* ===================================
-   PREVIEW SCREEN
-=================================== */
-#preview {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--bg);
-  text-align: center;
-  transition: opacity 0.8s ease;
-  z-index: 10;
-}
-
-#preview h1 {
-  font-size: 48px;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-}
-
-#preview p {
-  font-size: 22px;
-  margin-bottom: 32px;
-  color: #aaa;
-}
-
-.preview-logo {
-    display: block;
-    max-width: 90vw;
-    max-height: 70vh;
-    width: auto;
-    height: auto;
-}
-
-#enter-btn {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    outline: none;
-    transition: transform 0.3s ease;
-}
-
-#enter-btn:hover {
-    transform: scale(1.02);
-}
-
-#enter-btn:focus,
-#enter-btn:active {
-    outline: none;
-    border: none;
-    box-shadow: none;
-}
-
-#enter-btn img {
-  display: block;
-  border: none;
-}
-
-/*#enter-btn {
-  padding: 14px 28px;
-  font-size: 16px;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  background: transparent;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-#enter-btn:hover {
-  background: var(--accent);
-  color: var(--bg);
-}*/
-
-/* ===================================
    HEADER / HERO (Oscilloscope Scope)
 =================================== */
 .hero.scope-header{
@@ -234,9 +154,8 @@ html, body {
    MAIN WRAPPER
 =================================== */
 #main {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.8s ease;
+  display: block;
+  opacity: 1;
   padding: 40px 24px;
   max-width: var(--maxw);
   margin: 0 auto;
@@ -547,3 +466,19 @@ footer .socials a:hover {
   color: var(--accent);
   text-decoration: underline;
 }
+
+/* Responsive and accessibility refinements */
+img, iframe { max-width: 100%; }
+.brand img { max-width: min(220px, 65vw); height: auto; }
+.section-header img { max-width: 100%; height: auto; max-height: 100px; }
+.video-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.video-item iframe { aspect-ratio: 16 / 9; height: auto; }
+.scope-nav a:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 768px) {
+  .hero.scope-header { height: auto; min-height: 290px; }
+  .scope-ui { min-height: 290px; }
+  #main { padding: 24px 16px; }
+  .tracks { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+  .blog-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }

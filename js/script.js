@@ -1,33 +1,8 @@
-//ENTER SITE BUTTON
-document.addEventListener("DOMContentLoaded", () => {
-  const enterBtn = document.getElementById("enter-btn");
-  const preview = document.getElementById("preview");
-  const main = document.getElementById("main");
+// Darth Críos music player — independent of the former preview overlay.
+// Keep the homepage visible even if this script cannot load.
+(() => {
+  "use strict";
 
-  if (!enterBtn || !preview || !main) return;
-
-  main.style.display = "none";
-  main.style.opacity = 0;
-
-  enterBtn.addEventListener("click", () => {
-    preview.style.opacity = 0;
-
-    setTimeout(() => {
-      preview.style.display = "none";
-      main.style.display = "block";
-
-      setTimeout(() => {
-        main.style.opacity = 1;
-        window.dispatchEvent(new Event("resize"));
-      }, 50);
-    }, 800);
-  });
-});
-
-
-
-
-// Tracks data
 const tracksData = [
   {
     title: "Sample Pack Era EP",
@@ -80,47 +55,77 @@ const tracksData = [
 
 ];
 
-const tracksContainer = document.getElementById('tracks-container');
+  function initMusicPlayer() {
+    const container = document.getElementById("tracks-container");
+    if (!container) return; // Other pages may not have a track grid.
 
-tracksData.forEach(track => {
-  const trackDiv = document.createElement('div');
-  trackDiv.classList.add('track');
+    container.replaceChildren();
+    const players = [];
 
-  const ext = track.audio.split('.').pop().toLowerCase();
-  const type = ext === 'mp3' ? 'audio/mpeg' : 'audio/wav';
+    for (const track of tracksData) {
+      const card = document.createElement("article");
+      card.className = "track";
 
-  trackDiv.innerHTML = `
-    <img src="${track.albumArt}" alt="${track.title} Album Art">
-    <div class="track-title">${track.title}</div>
-    <div class="track-wave"></div>
+      const art = document.createElement("img");
+      art.src = track.albumArt;
+      art.alt = `${track.title} album artwork`;
+      art.loading = "lazy";
+      card.appendChild(art);
 
-    <!-- Hidden audio element -->
-    <audio preload="none" controlsList="nodownload noplaybackrate" class="hidden-audio">
-      <source src="${track.audio}" type="${type}">
-    </audio>
+      const title = document.createElement("div");
+      title.className = "track-title";
+      title.textContent = track.title;
+      card.appendChild(title);
 
-    <!-- Custom buttons -->
-    <div class="player-controls">
-      <button class="play-btn">▶️ Play</button>
-      <button class="pause-btn">⏸️ Pause</button>
-    <a href="${track.buyLink}" target="_blank" class="buy-btn">💰</a>
-    </div>
-  `;
+      const wave = document.createElement("div");
+      wave.className = "track-wave";
+      card.appendChild(wave);
 
-  tracksContainer.appendChild(trackDiv);
-});
+      const audio = document.createElement("audio");
+      audio.className = "hidden-audio";
+      audio.preload = "none";
+      audio.setAttribute("controlsList", "nodownload noplaybackrate");
+      const source = document.createElement("source");
+      source.src = track.audio;
+      source.type = track.audio.toLowerCase().endsWith(".mp3") ? "audio/mpeg" : "audio/wav";
+      audio.appendChild(source);
+      card.appendChild(audio);
+      players.push(audio);
 
-// Hook up custom buttons
-document.querySelectorAll('.track').forEach(trackEl => {
-  const audio = trackEl.querySelector('audio');
-  const playBtn = trackEl.querySelector('.play-btn');
-  const pauseBtn = trackEl.querySelector('.pause-btn');
+      const controls = document.createElement("div");
+      controls.className = "player-controls";
+      const play = document.createElement("button");
+      play.type = "button";
+      play.className = "play-btn";
+      play.textContent = "▶ Play";
+      play.setAttribute("aria-label", `Play ${track.title}`);
+      play.addEventListener("click", async () => {
+        players.forEach(other => { if (other !== audio) other.pause(); });
+        try { await audio.play(); }
+        catch (error) { console.warn(`Unable to play ${track.title}:`, error); }
+      });
+      const pause = document.createElement("button");
+      pause.type = "button";
+      pause.className = "pause-btn";
+      pause.textContent = "⏸ Pause";
+      pause.setAttribute("aria-label", `Pause ${track.title}`);
+      pause.addEventListener("click", () => audio.pause());
+      const buy = document.createElement("a");
+      buy.className = "buy-btn";
+      buy.href = track.buyLink;
+      buy.target = "_blank";
+      buy.rel = "noopener noreferrer";
+      buy.textContent = "💰";
+      buy.setAttribute("aria-label", `Buy or listen to ${track.title}`);
+      controls.append(play, pause, buy);
+      card.appendChild(controls);
+      container.appendChild(card);
+    }
+  }
 
-  playBtn.addEventListener('click', () => {
-    audio.play();
-  });
-
-  pauseBtn.addEventListener('click', () => {
-    audio.pause();
-  });
-});
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMusicPlayer, { once: true });
+  } else {
+    initMusicPlayer();
+  }
+})();
